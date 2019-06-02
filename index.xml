@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Startseite on Luzerner Rollenspieltage</title>
+    <link>https://gildedernacht.ch/</link>
+    <description>Recent content in Startseite on Luzerner Rollenspieltage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gildedernacht.ch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kontakt</title>
+      <link>https://gildedernacht.ch/contact/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gildedernacht.ch/contact/</guid>
+      <description>Du hast eine Frage zu den Luzerner Rollenspieltagen?
+Oder du möchtest gerne eine Runde leiten?
+Wir hören gerne von dir und antworten dir auch innerhalb von 24 Stunden.
+ Name * E-Mail * Nachricht *     </description>
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>https://gildedernacht.ch/links/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gildedernacht.ch/links/</guid>
+      <description>Die folgenden Links wurden vom Organisationsomitee der Rollenspieltage ausgewählt (und sind daher subjektiv). Wenn du den Eindruck hast, dass hier ein wichtiger Link fehlt, dann schreibe uns doch bitte eine Nachricht, mit deinem Vorschlag.
+Lieben Dank
+Keiner der folgenden Link ist ein Affiliate-Link. Kostenpflichtige Links sind jeweils entsprechend gekennzeichnet ($).
+  Quelle: Cataclysm von Gene Raz von Edler | Copyright ©    Geschichten Story Generator (tvtropes.org)</description>
+    </item>
+    
+    <item>
+      <title>Newsletter</title>
+      <link>https://gildedernacht.ch/newsletter/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gildedernacht.ch/newsletter/</guid>
+      <description> Vorname *   Nachname *   E-Mail Adresse *  Interessens Luzerner Spieltage Brettspiele Luzerner Rollenspieltage Rollenspiele Luzerner Tabletoptag Tabletop  Bitte wähle mindestens ein Interesse aus.
+      (function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = &#39;EMAIL&#39;; ftypes[0] = &#39;email&#39;; fnames[1] = &#39;FNAME&#39;; ftypes[1] = &#39;text&#39;; fnames[2] = &#39;LNAME&#39;; ftypes[2] = &#39;text&#39;; }(jQuery)); var $mcj = jQuery.noConflict(true);   </description>
+    </item>
+    
+    <item>
+      <title>Rollenspiel?</title>
+      <link>https://gildedernacht.ch/roleplay/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gildedernacht.ch/roleplay/</guid>
+      <description>Was ist ein Rollenspiel? Ein Rollenspiel, wie es an unserem Anlass gespielt wird, wird auch oft als Tabletop Rollenspiel (da man an einem Tisch spielt) oder Pen-&amp;amp;-Paper-Rollenspiel (oft mit Stift und Papier) genannt.
+Du kannst dir darunter eine Spielrunde vorstellen, aus durchschnittlich 3-5 Personen, welche gemeinsam eine Geschichte erzählt. Man kann es gut mit einem Improvisationstheater vergleichen. Dazu kommen je nach Runde Spielregeln dazu, die sich oft in Form von Würfeln manifestieren, die die Geschichte in eine Richtung katapultieren können, wie du es dir zu Beginn gar nicht hättest vorstellen können.</description>
+    </item>
+    
+    <item>
+      <title>Verhaltenskodex</title>
+      <link>https://gildedernacht.ch/coc/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://gildedernacht.ch/coc/</guid>
+      <description>Ein wichtiges Anliegen der Organisation ist es, dass der Luzerner Rollenspieltag für alle Besucher als schöne und sichere Veranstaltung in Erinnerung bleiben wird. Dementsprechend werden wir keinerlei Verhalten tolerieren, das als Belästigung oder Übergriff wahrgenommen wird, einschliesslich Sexismus, Rassismus, Antisemitismus, Homo- oder Transphobie sowie Diskriminierung aufgrund von Behinderung, Alter, Aussehen, Herkunft oder Religion.
+Wenn eine Person sich auf dem Rollenspieltag so verhält, dass du oder jemand anderes sich dadurch unsicher, unwohl oder unwillkommen fühlt, melde das bitte der Organisatoren.</description>
+    </item>
+    
+  </channel>
+</rss>
