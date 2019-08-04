@@ -11,6 +11,33 @@
     
     
     <item>
+      <title>Anmelden</title>
+      <link>https://rollenspieltage.ch/program_test/</link>
+      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rollenspieltage.ch/program_test/</guid>
+      <description>Suche dir die Spielrunden aus, bei denen du gerne teilnehmen möchtest und schicke ganz unten das Formular ab:
+-
+-
+-
+-
+-
+-
+-
+-
+
+ Spielleiter: 
+Spielbeschreibung: 
+Kampagnenbeschreibung: 
+Sprache:  Tag und Zeit: ,  &amp;mdash;  Uhr
+Spieler Aktuell:  / Max: 
+
+  
+    Uhr  Uhr  
+Freitag, 30. August 2019  Samstag, 31.</description>
+    </item>
+    
+    <item>
       <title>Programm</title>
       <link>https://rollenspieltage.ch/program/</link>
       <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
@@ -75,6 +102,15 @@ Du kannst dir darunter eine Spielrunde vorstellen, aus durchschnittlich 3-5 Pers
       <guid>https://rollenspieltage.ch/coc/</guid>
       <description>Ein wichtiges Anliegen der Organisation ist es, dass die Luzerner Rollenspieltage für alle Besucher als schöne und sichere Veranstaltung in Erinnerung bleiben wird. Dementsprechend werden wir keinerlei Verhalten tolerieren, das als Belästigung oder Übergriff wahrgenommen wird, einschliesslich Sexismus, Rassismus, Antisemitismus, Homo- oder Transphobie sowie Diskriminierung aufgrund von Behinderung, Alter, Aussehen, Herkunft oder Religion.
 Wenn eine Person sich an den Rollenspieltagen so verhält, dass du oder jemand anderes sich dadurch unsicher, unwohl oder unwillkommen fühlt, melde das bitte der Organisatoren.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://rollenspieltage.ch/program_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rollenspieltage.ch/program_overview/</guid>
+      <description>body { width: 40em; margin: 1em auto; }   --    &#39;use strict&#39;; async function main() { const games = getGames(); const rounds = getRounds(); const registrations = await getRegistrations(); /* TODO showRoundsOverview &amp; showGmsOverview are written a bit ugly and just create a HTML. For a proof of concepts this is enough. If this functionality is further used, some kind of a template should be used.</description>
     </item>
     
   </channel>

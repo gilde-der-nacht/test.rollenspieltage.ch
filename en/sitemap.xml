@@ -18,6 +18,21 @@
   </url>
   
   <url>
+    <loc>https://rollenspieltage.ch/en/program_test/</loc>
+    <lastmod>2019-06-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://rollenspieltage.ch/program_test/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rollenspieltage.ch/en/program_test/"
+                />
+  </url>
+  
+  <url>
     <loc>https://rollenspieltage.ch/en/contact/</loc>
     <lastmod>2019-05-01T00:00:00+00:00</lastmod>
     <xhtml:link
