@@ -35,6 +35,23 @@ async function main() {
         }, []);
     }
 
+    function afterSubmit(rounds) {
+        window.scrollTo(0,0);
+        document.getElementById('apollon-submitted-hint').innerText = translate('submitted-thanks');
+        const printId = 'apollon-submitted-summary'
+        document.getElementById(printId).classList.add('success');
+        printTable(printId, rounds);
+        showRounds();
+        showSummaries();
+        clearForm();
+    }
+
+    function clearForm() {
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('comment').value = '';
+    }
+
     async function submit() {
         const nameNode = document.getElementById('name');
         const emailNode = document.getElementById('email');
@@ -42,9 +59,14 @@ async function main() {
         const name = nameNode.value;
         const email = emailNode.value;
         const comment = commentNode.value;
+        if ((name === "") || (email === "")) {
+            showSummaries();
+            document.getElementById('apollon-summary-hint').innerText += '\n' + translate('form-empty'); // TODO: better solution for multiple hints
+            return;
+        }
         const rounds = getSelectedRounds();
         await registrationAdd(name, email, comment, rounds);
-        location.reload(); // when the page is reloaded, the reservations are immediately updated
+        afterSubmit(rounds);
     }
 
     function updateRoundState(roundNode, playersCurrent, playersMax, checkboxNode) {
@@ -61,9 +83,7 @@ async function main() {
     }
 
     function showSummaries(event) {
-        const summaryTemplateNode = document.getElementById('apollon-summary-template');
         const roundsNode = document.getElementById('apollon-rounds');
-        const fragment = document.createDocumentFragment();
         const selectedRoundIds = getSelectedRounds();
         const overlappingRoundIds = roundsDayTimeOverlapping(selectedRoundIds);
         let overlapping = overlappingRoundIds.length > 0;
@@ -72,18 +92,36 @@ async function main() {
             const checkboxNode = roundNode.querySelector('[data-id=checkbox]');
             const hintNode = roundNode.querySelector('[data-id=hint]');
             hintNode.innerText = overlappingRoundIds.includes(entry.roundId) ? translate('overlapping') : '';
-            if(checkboxNode.checked === true) {
-                const templateNode = summaryTemplateNode.content.cloneNode(true);
-                templateNode.querySelector('[data-id=name]').innerText = entry.game.name;
-                templateNode.querySelector('[data-id=day]').innerText = translate(entry.round.day);
-                templateNode.querySelector('[data-id=from]').innerText = formatTime(entry.round.from);
-                templateNode.querySelector('[data-id=to]').innerText = formatTime(entry.round.to);
-                fragment.appendChild(templateNode);
-            }
             updateRoundState(roundNode, entry.playersCurrent, entry.game.playersMax, checkboxNode);
         });
         document.getElementById('apollon-summary-hint').innerText = overlapping ? translate('overlapping') : '';
-        replaceWithFragment(document.getElementById('apollon-summary'), fragment);
+        printTable('apollon-summary', selectedRoundIds);
+    }
+
+    function printTable(locationId, rounds) {
+        const summaryTableTemplateNode = document.getElementById('apollon-summary-table');
+        const summaryRowTemplateNode = document.getElementById('apollon-summary-row');
+        const rowFragment = document.createDocumentFragment();
+
+        rounds.forEach(key => {
+            const round = getRounds()[key];
+            const entry = getGames()[round.gameId];
+
+            const templateNode = summaryRowTemplateNode.content.cloneNode(true);
+            templateNode.querySelector('[data-id=name]').innerText = entry.name;
+            templateNode.querySelector('[data-id=day]').innerText = translate(round.day);
+            templateNode.querySelector('[data-id=from]').innerText = formatTime(round.from);
+            templateNode.querySelector('[data-id=to]').innerText = formatTime(round.to);
+            rowFragment.appendChild(templateNode);
+        });
+
+        if (rounds.length > 0) {
+            const templateNode = summaryTableTemplateNode.content.cloneNode(true);
+            replaceWithFragment(document.getElementById(locationId), templateNode);
+            replaceWithFragment(document.querySelector('#' + locationId + ' tbody'), rowFragment);
+        } else {
+            document.getElementById(locationId).innerText = '';
+        }
     }
 
     /*

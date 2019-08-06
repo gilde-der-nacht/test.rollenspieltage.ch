@@ -11,7 +11,7 @@ const RESERVE_SEAT = 1;
 function getGames() {
     return {
         'Adrian-EveryoneIsJohn': {
-            name: 'Everyone is John (Für Anfänger)',
+            name: 'Everyone is John (Einsteigerfreundlich)',
             gm: 'Adrian',
             gameDescription: 'Everyone is John ist ein stark vereinfachtes Rollenspiel. Jeder Spieler ist eine Stimme in Johns Kopf und versucht John zu verschiedenen Dingen zu überreden. Dabei kann man John zu nahezu allen Dingen überreden.',
             campaignDescription: 'Willst du eine von vielen Stimmen im schizophrenen Gehirn von John sein? Dann freue dich auf ein extrem chaotisches, kurzweiliges Rollenspiel.',
@@ -19,7 +19,7 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
         'Adrian-Shadowrun': {
-            name: 'Shadowrun (Für Anfänger)',
+            name: 'Shadowrun (Einsteigerfreundlich)',
             gm: 'Adrian',
             gameDescription: 'Shadowrun spielt in der nahen Zukunft und verbindet den technischen und Dark-Future-Aspekt von Cyberpunk mit magischen Einflüssen der Fantasy (Magie, Elfen, Zwerge, Drachen)',
             campaignDescription: 'Wir tauchen gemeinsam in die düstere Cyberpunkwelt Shadowrun ein.',
@@ -28,7 +28,7 @@ function getGames() {
         },
 
         'Kevin-Cthulhu-Filmriss': {
-            name: 'Cthulhu (Für Anfänger)',
+            name: 'Cthulhu (Einsteigerfreundlich)',
             gm: 'Kevin',
             gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas "Glück" überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
             campaignDescription: 'Filmriss: Ich schreibe diesen Brief unter beträchtlicher geistiger Anspannung. Wenn du diese zitternd gekriezelten Zeilen liest, wirst du mich für Wahnsinnig halten, dies zu beurteilen liegt mir jedoch fern. Nach einer anstrengenden Woche im Büro freute ich mich wie jeden Freitag auf die Kultfilmnacht in meinem Lieblingskino, dem Central...',
@@ -36,7 +36,7 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
         'Kevin-Cthulhu-Zahltag': {
-            name: 'Cthulhu (Für Anfänger)',
+            name: 'Cthulhu (Einsteigerfreundlich)',
             gm: 'Kevin',
             gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas "Glück" überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
             campaignDescription: 'Zahltag: Ihr habt so richtig Mist gebaut. Euer Boss schäumt vor Wut und ihr wisst nicht ob ihr das ganze wieder gut machen könnt oder bei den Fischen landet. Euer Boss ist aber gnädig gestimmt und gibt euch nochmals eine Chance. Jemand hat in seinem Gebiet gewildert ohne ihm seinen Anteil zu geben. Hört sich doch einfach an, kurz beim Typen vorbeischauen, ihm eine Lektion erteilen und eure Schuld ist beglichen. Es werden Charaktere zur Verfügung gestellt, ihr könnt aber auch mit einem eigenen Charakter aus der Gangsterbranche auftauchen.',
@@ -44,7 +44,7 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
         'Kevin-Pathfinder': {
-            name: 'Pathfinder (Für Anfänger)',
+            name: 'Pathfinder (Einsteigerfreundlich)',
             gm: 'Kevin',
             gameDescription: 'Pathfinder ist ein Fantasy Rollenspiel, das auf dem Klassiker Dungeons & Dragons (Version 3.5) beruht. Aufgrund der Open Game License sind die zum Spielen erforderlichen Regeln kostenlos verfügbar. Dank der sehr guten Einsteigerbox könnt ihr nach kurzem Lesen direkt loslegen und euch langsam an die Welt des Pen & Papers herantasten.',
             campaignDescription: "Die jungen Helden der Siedlung Kassen brechen auf zu ihrer Initiationszeremonie, einer alten Tradition, bei welcher es ein Stück der Ewigen Flamme zu bergen gilt, die in der Gruft des Gründers des Ortes brennt. Was sie jedoch vorfinden ist eine Begräbnisstätte voller Leichen von Dorfbewohnern sowie belebten Skeletten. Die Helden müssen den Fallen und Gefahren in der Krypta der Ewigen Flamme entgegentreten, den Ursprung der Verderbtheit finden. Für da Szenario werden Charaktere zur Verfügung gestellt, es können jedoch auch eigene Charaktere(lvl1) aus dem Grundregelwerk und Expertenregeln verwendet werden. Am Anfang werden die Regeln von Pathfinder für Anfänger erklärt.",
@@ -87,7 +87,7 @@ function getGames() {
         },
 
         'Manuela-Finsterland-Stadt': {
-            name: 'Finsterland (Für Anfänger)',
+            name: 'Finsterland (Einsteigerfreundlich)',
             gm: 'Manuela',
             gameDescription: 'Finsterland spielt in einer Welt, die dem Europa das 19. und 20. Jahrhunderts ähnelt, aber Magie, Monster und revolutionäre Technologien bietet.',
             campaignDescription: 'Stadtabenteuer: Die Welt ist im Umbruch. Der Fortschritt fegt das Althergebrachte weg. Begleitet mich nach Chinatown im Jahr 1812 um das Neuarsfest zu feiern. Doch was lauert in der dunklen Gasse?',
@@ -95,7 +95,7 @@ function getGames() {
             playersMax: 4 - RESERVE_SEAT,
         },
         'Manuela-Finsterland-Piraten': {
-            name: 'Finsterland (Für Anfänger)',
+            name: 'Finsterland (Einsteigerfreundlich)',
             gm: 'Manuela',
             gameDescription: 'Finsterland spielt in einer Welt, die dem Europa das 19. und 20. Jahrhunderts ähnelt, aber Magie, Monster und revolutionäre Technologien bietet.',
             campaignDescription: 'Piratenabenteuer. Die Welt ist im Umbruch. Der fortschritt fegt das Althergebrachte weg. Ihr habt eine gemütliche Reise mit einem Luftschiff der Angelare gebucht. Doch ihr habt nicht mit denn Luftpiraten gerechnet die schon auf Beute warten. Auf in ein luftiges Abenteuer.',
@@ -166,10 +166,10 @@ function getGames() {
         },
 
         'Jonas-Pathfinder': {
-            name: 'Pathfinder (Für Einsteiger)',
+            name: 'Pathfinder (Einsteigerfreundlich)',
             gm: 'Jonas',
             gameDescription: 'Pathfinder basiert auf der Open Game License des Dungeons & Dragons-Regelwerks in Version 3.5.',
-            campaignDescription: '',
+            campaignDescription: 'Wenn man mit Mörder, Halsabschneider, und Dieben dem dunklen Gott geopfert wird... hat man im Leben viel falsche Entscheidungen getroffen. Jetzt kann man seine Götter um Vergebung bitten oder trifft ein paar falsche Entscheidungen mehr und bleibt vielleicht am Leben.',
             lang: 'DE',
             playersMax: 6 - RESERVE_SEAT,
         },
@@ -206,6 +206,24 @@ function getGames() {
             gm: 'Dominique',
             gameDescription: '',
             campaignDescription: '',
+            lang: 'DE',
+            playersMax: 5 - RESERVE_SEAT,
+        },
+
+        'Flutschi-Character': {
+            name: 'Workshop: D&D Charakter erstellen',
+            gm: 'Sandro',
+            gameDescription: 'Sandro vom GamePlace hilft euch bei der Charakterkreation im beliebten Dungeons & Dragons Spielsystem.',
+            campaignDescription: '',
+            lang: 'DE',
+            playersMax: 11 - RESERVE_SEAT,
+        },
+
+        'Flutschi-DnD': {
+            name: 'D&D (Einsteigerfreundlich)',
+            gm: 'Sandro',
+            gameDescription: 'folgt. (Erscheine ein bisschen früher, um mit dem Spielleiter Sandro gemeinsam einen Charakter zu erstellen).',
+            campaignDescription: 'folgt',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -264,6 +282,9 @@ function getRounds() {
         'GianMarco-0': { gameId: 'GianMarco-Dungeonslayer', day: 'friday', from: 19, to: 22 },
         'GianMarco-1': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 16, to: 19.5 },
         'GianMarco-2': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 19.5, to: 22 },
+
+        'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.3 },
+        'Flutschi-1': { gameId: 'Flutschi-DnD', day: 'saturday', from: 16, to: 22 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
@@ -325,12 +346,22 @@ function roundsDetailed(registrations) {
 }
 
 function roundsDayTimeOverlapping(roundIdOthers) {
+    function timeOverlapping(a, b) {
+        if(a.to <= b.from) {
+            return false;
+        }
+        if(a.from >= b.to) {
+            return false;
+        }
+        return true;
+    }
+
     const rounds = getRounds();
     return roundIdOthers.reduce((accumulator, roundIdA) => {
         const roundA = rounds[roundIdA];
         roundIdOthers.forEach(roundIdB => {
             const roundB = rounds[roundIdB];
-            if((roundIdA !== roundIdB) && (roundA.day === roundB.day) && (roundA.from === roundB.from)) {
+            if((roundIdA !== roundIdB) && (roundA.day === roundB.day) && (timeOverlapping(roundA, roundB) || timeOverlapping(roundB, roundA))) {
                 accumulator.push(roundIdA);
                 return;
             }

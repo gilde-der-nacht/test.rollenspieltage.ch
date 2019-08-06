@@ -7,8 +7,8 @@
   
   <meta name="generator" content="Hugo 0.55.0" />
   
-  <link rel="stylesheet" href="/sass/main.min.e93a732819ad0ebbc8c95b1a59c135541272ac2b67bb3eb530e4d052d00d9905.css" media="screen"
-    integrity="sha256-6TpzKBmtDrvIyVsaWcE1VBJyrCtnuz61MOTQUtANmQU=" />
+  <link rel="stylesheet" href="/sass/main.min.5312d25b303e102b445c4a5d1710e37406e156e22c3a57b2f950464fdc7c295e.css" media="screen"
+    integrity="sha256-UxLSWzA&#43;ECtEXEpdFxDjdAbhVuIsOley&#43;VBGT9x8KV4=" />
 </head>
   <body>
     <header>
@@ -95,6 +95,9 @@
   
     
 
+<p id="apollon-submitted-hint"></p>
+<p id="apollon-submitted-summary"></p>
+
 <p>Select the rounds you would like to participate in and submit the form below:</p>
 
 <p><template id="apollon-i18n">
@@ -107,6 +110,8 @@
     <p data-id="flag-url-DE" data-text="/graphics/germany-flag-small.png">-</p>
     <p data-id="flag-url-EN" data-text="/graphics/united-kingdom-flag-small.png">-</p>
     <p data-id="overlapping" data-text="Attention: At least two game rounds overlap in time!">-</p>
+    <p data-id="submitted-thanks" data-text="Thank you for signing up for the following rounds:">-</p>
+    <p data-id="form-empty" data-text="Please fill out your name and email address.">-</p>
 </template></p>
 
 <p><template id="apollon-round-template">
@@ -126,7 +131,22 @@
     </label>
 </template></p>
 
-<p><template id="apollon-summary-template">
+<p><template id="apollon-summary-table">
+    <table id="apollon-table-template">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Day</th>
+            <th>from</th>
+            <th>to</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</template></p>
+
+<p><template id="apollon-summary-row">
     <tr>
         <td><span data-id="name"></span></td>
         <td><span data-id="day"></span></td>
@@ -160,18 +180,7 @@
         </p>
         <h2>Summary</h2>
         <p id="apollon-summary-hint" class="hint"></p>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Day</th>
-                <th>from</th>
-                <th>to</th>
-            </tr>
-            </thead>
-            <tbody id="apollon-summary">
-            </tbody>
-        </table>
+        <div id="apollon-summary"></div>
         <input class="c-btn" type="submit" id="submit" value="Submit">
         <input type="hidden" name="_next" value="http://localhost:1313/program_test/">
         <input type="hidden" name="_captcha" value="false">
@@ -186,8 +195,6 @@
 <script src="https://api.gildedernacht.ch/olymp.js"></script>
 <script src="/scripts/apollon-model.js"></script>
 <script src="/scripts/apollon-view.js"></script>
-
-<p></script></p>
 
 
     </main>
