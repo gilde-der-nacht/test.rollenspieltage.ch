@@ -120,9 +120,9 @@ function getGames() {
             playersMax: 5 - RESERVE_SEAT,
         },
 
-        'Viktor-DnD': {
+        'Victor-DnD': {
             name: 'D&D 1st Edition',
-            gm: 'Viktor',
+            gm: 'Victor',
             gameDescription: 'Dungeons & Dragons (commonly abbreviated as D&D or DnD) is a fantasy tabletop role-playing game (RPG) originally designed by Gary Gygax and Dave Arneson.',
             campaignDescription: "Tired of hearing old players say 'I was there when THAC0 was a thing'? Now is your time to experience this edition. 'Dragon of Despair' is the first in TSR's series of Dragonlance adventures for use with the AD&D game system. The players will adventure in the world of Krynn, visit strange places such as Haven or ruined Xak Tsaroth, and encounter the bizarre draconians and spectral minions.",
             lang: 'EN',
@@ -148,10 +148,10 @@ function getGames() {
         },
 
         'Martin-SwordSorcery': {
-            name: 'Sword & Sorcery (Eigenes Rollenspiel)',
+            name: 'Sword & Sorcery',
             gm: 'Martin',
-            gameDescription: '',
-            campaignDescription: '',
+            gameDescription: 'Sword & Sorcery ist mein eigenes Rollenspiel, mit Elementen von D&D und Dungeonworld.',
+            campaignDescription: 'Schlüpfe in die Rolle eines Fantasy/Mittelalter Helden um verschiedene Herausforderungen zu meistern.',
             lang: 'DE',
             playersMax: 4 - RESERVE_SEAT,
         },
@@ -196,7 +196,7 @@ function getGames() {
             name: 'Dungeonslayer',
             gm: 'Gian-Marco',
             gameDescription: 'Bei Dungeonslayer ist das Dungeoncrawling in einem klassischen Fantasysetting ein wichtiges Element.',
-            campaignDescription: 'TODO',
+            campaignDescription: 'Folgt noch.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -204,8 +204,8 @@ function getGames() {
         'Dominique-DnD': {
             name: 'D&D 5e',
             gm: 'Dominique',
-            gameDescription: '',
-            campaignDescription: '',
+            gameDescription: '...',
+            campaignDescription: 'Folgt noch.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -226,6 +226,15 @@ function getGames() {
             campaignDescription: 'folgt',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
+        },
+
+        'Martin-DSA': {
+            name: 'DSA 5 (Einsteigerfreundlich)',
+            gm: 'Martin',
+            gameDescription: 'DSA5 ist die 5. Regelversion von Das Schwarze Auge. Es basiert auf der, sehr detailreichen Fantasy-Spielwelt Aventurien.',
+            campaignDescription: 'Folgt noch...',
+            lang: 'DE',
+            playersMax: 3 - RESERVE_SEAT,
         },
 
         /*
@@ -264,7 +273,7 @@ function getRounds() {
         'Stefan-0': { gameId: 'Stefan-DnD-Aufklaerung', day: 'friday', from: 19.5, to: 1 },
         'Stefan-1': { gameId: 'Stefan-DnD-Befreiung', day: 'saturday', from: 13, to: 19.5 },
 
-        'Viktor-0': { gameId: 'Viktor-DnD', day: 'saturday', from: 13, to: 16 },
+        'Victor-0': { gameId: 'Victor-DnD', day: 'saturday', from: 13, to: 16 },
 
         'Mark-0': { gameId: 'Mark-LaserAndFeelings', day: 'saturday', from: 16, to: 19.5 },
 
@@ -285,6 +294,10 @@ function getRounds() {
 
         'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.3 },
         'Flutschi-1': { gameId: 'Flutschi-DnD', day: 'saturday', from: 16, to: 22 },
+
+        'MartinDSA-0': { gameId: 'Martin-DSA', day: 'friday', from: 19, to: 1 },
+
+        'Dominique-0': { gameId: 'Dominique-DnD', day: 'saturday', from: 16, to: 19.5 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
