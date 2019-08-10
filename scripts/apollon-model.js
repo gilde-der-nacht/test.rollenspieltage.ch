@@ -30,7 +30,11 @@ function getGames() {
         'Kevin-Cthulhu-Filmriss': {
             name: 'Cthulhu (Einsteigerfreundlich)',
             gm: 'Kevin',
+<<<<<<< HEAD
             gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas «Glück» überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
+=======
+            gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas "Glück" überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
+>>>>>>> 1010cf3c153b75540a7c47430779b158ea8f630d
             campaignDescription: 'Wie jeden Freitag geht ihr an die Horror Kultfilmnacht in eurem Lieblingskino dem Central. Doch dies mal wird der Horror Real und ihr seid gefangen. Schafft ihr es lebend aus dem Kino? Das Szenario wird mit vorgefertigten Charakteren gespielt. Es handelt sich um ein Closed Room Szenario, das heisst das ganze spielt ausschliesslich in den Räumlichkeiten vom Kino.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
@@ -38,7 +42,11 @@ function getGames() {
         'Kevin-Cthulhu-Zahltag': {
             name: 'Cthulhu (Einsteigerfreundlich)',
             gm: 'Kevin',
+<<<<<<< HEAD
             gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas «Glück» überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
+=======
+            gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas "Glück" überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
+>>>>>>> 1010cf3c153b75540a7c47430779b158ea8f630d
             campaignDescription: 'Ihr habt so richtig Mist gebaut und euer Boss schäumt vor Wut. Er gibt euch noch eine letzte Chance oder ihr landet bei den Fischen. Jemand hat in seinem Gebiet gewildert. Erledigt das für ihn und ihr seid quitt. Hört sich doch einfach an, jedoch hätte es euch stutzig machen sollen, dass ein Ritualdolch samt Inschrift gestohlen wurde. Für das Szenario werden Charaktere zur Verfügung gestellt, ihr könnt aber auch mit einem eigenen Charakter aus der Gangsterbranche(1920er) auftauchen.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
@@ -47,7 +55,11 @@ function getGames() {
             name: 'Pathfinder (Einsteigerfreundlich)',
             gm: 'Kevin',
             gameDescription: 'Pathfinder ist ein Fantasy Rollenspiel, das auf dem Klassiker Dungeons & Dragons (Version 3.5) beruht. Aufgrund der Open Game License sind die zum Spielen erforderlichen Regeln kostenlos verfügbar. Es gibt eine Unmenge an Büchern, diese enthalten oftmals neue Klassen, Rassen, Fähigkeiten, aber auch detaillierte Beschreibungen zu diversen Gebieten. Wollt ihr ein Szenario als Drache spielen oder als Groot die Welt von Pathfinder unsicher machen, kein Problem.',
+<<<<<<< HEAD
             campaignDescription: 'Als junge Abenteurer brecht ihr von Kassen auf um in der Krypta eurer Vorfahren, den Gründern die letzte Ehre zu erweisen. Leider ist die Krypta nicht so harmlos wie ihr dachtet. Für da Szenario werden Charaktere zur Verfügung gestellt, es können jedoch auch eigene Charaktere(lvl1) aus dem Grundregelwerk und Expertenregeln verwendet werden.',
+=======
+            campaignDescription: "Als junge Abenteurer brecht ihr von Kassen auf um in der Krypta eurer Vorfahren, den Gründern die letzte Ehre zu erweisen. Leider ist die Krypta nicht so harmlos wie ihr dachtet. Für da Szenario werden Charaktere zur Verfügung gestellt, es können jedoch auch eigene Charaktere(lvl1) aus dem Grundregelwerk und Expertenregeln verwendet werden.",
+>>>>>>> 1010cf3c153b75540a7c47430779b158ea8f630d
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
