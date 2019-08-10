@@ -30,32 +30,32 @@ function getGames() {
         'Kevin-Cthulhu-Filmriss': {
             name: 'Cthulhu (Einsteigerfreundlich)',
             gm: 'Kevin',
-            gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas "Glück" überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
-            campaignDescription: 'Filmriss: Ich schreibe diesen Brief unter beträchtlicher geistiger Anspannung. Wenn du diese zitternd gekriezelten Zeilen liest, wirst du mich für Wahnsinnig halten, dies zu beurteilen liegt mir jedoch fern. Nach einer anstrengenden Woche im Büro freute ich mich wie jeden Freitag auf die Kultfilmnacht in meinem Lieblingskino, dem Central...',
+            gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas «Glück» überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
+            campaignDescription: 'Wie jeden Freitag geht ihr an die Horror Kultfilmnacht in eurem Lieblingskino dem Central. Doch dies mal wird der Horror Real und ihr seid gefangen. Schafft ihr es lebend aus dem Kino? Das Szenario wird mit vorgefertigten Charakteren gespielt. Es handelt sich um ein Closed Room Szenario, das heisst das ganze spielt ausschliesslich in den Räumlichkeiten vom Kino.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
         'Kevin-Cthulhu-Zahltag': {
             name: 'Cthulhu (Einsteigerfreundlich)',
             gm: 'Kevin',
-            gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas "Glück" überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
-            campaignDescription: 'Zahltag: Ihr habt so richtig Mist gebaut. Euer Boss schäumt vor Wut und ihr wisst nicht ob ihr das ganze wieder gut machen könnt oder bei den Fischen landet. Euer Boss ist aber gnädig gestimmt und gibt euch nochmals eine Chance. Jemand hat in seinem Gebiet gewildert ohne ihm seinen Anteil zu geben. Hört sich doch einfach an, kurz beim Typen vorbeischauen, ihm eine Lektion erteilen und eure Schuld ist beglichen. Es werden Charaktere zur Verfügung gestellt, ihr könnt aber auch mit einem eigenen Charakter aus der Gangsterbranche auftauchen.',
+            gameDescription: 'Call of Cthulhu ist ein auf dem von H. P. Lovecraft geschaffenen Cthulhu-Mythos basierendes Rollenspiel. Es ist der erste erfolgreiche Versuch, nach dem Fantasy-Genre auch Horror in eine für das Rollenspiel geeignete Spielform zu bringen. Mit etwas «Glück» überlebt euer Charakter auch den Abend, jedoch wird er nie mehr derselbe sein.',
+            campaignDescription: 'Ihr habt so richtig Mist gebaut und euer Boss schäumt vor Wut. Er gibt euch noch eine letzte Chance oder ihr landet bei den Fischen. Jemand hat in seinem Gebiet gewildert. Erledigt das für ihn und ihr seid quitt. Hört sich doch einfach an, jedoch hätte es euch stutzig machen sollen, dass ein Ritualdolch samt Inschrift gestohlen wurde. Für das Szenario werden Charaktere zur Verfügung gestellt, ihr könnt aber auch mit einem eigenen Charakter aus der Gangsterbranche(1920er) auftauchen.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
         'Kevin-Pathfinder': {
             name: 'Pathfinder (Einsteigerfreundlich)',
             gm: 'Kevin',
-            gameDescription: 'Pathfinder ist ein Fantasy Rollenspiel, das auf dem Klassiker Dungeons & Dragons (Version 3.5) beruht. Aufgrund der Open Game License sind die zum Spielen erforderlichen Regeln kostenlos verfügbar. Dank der sehr guten Einsteigerbox könnt ihr nach kurzem Lesen direkt loslegen und euch langsam an die Welt des Pen & Papers herantasten.',
-            campaignDescription: "Die jungen Helden der Siedlung Kassen brechen auf zu ihrer Initiationszeremonie, einer alten Tradition, bei welcher es ein Stück der Ewigen Flamme zu bergen gilt, die in der Gruft des Gründers des Ortes brennt. Was sie jedoch vorfinden ist eine Begräbnisstätte voller Leichen von Dorfbewohnern sowie belebten Skeletten. Die Helden müssen den Fallen und Gefahren in der Krypta der Ewigen Flamme entgegentreten, den Ursprung der Verderbtheit finden. Für da Szenario werden Charaktere zur Verfügung gestellt, es können jedoch auch eigene Charaktere(lvl1) aus dem Grundregelwerk und Expertenregeln verwendet werden. Am Anfang werden die Regeln von Pathfinder für Anfänger erklärt.",
+            gameDescription: 'Pathfinder ist ein Fantasy Rollenspiel, das auf dem Klassiker Dungeons & Dragons (Version 3.5) beruht. Aufgrund der Open Game License sind die zum Spielen erforderlichen Regeln kostenlos verfügbar. Es gibt eine Unmenge an Büchern, diese enthalten oftmals neue Klassen, Rassen, Fähigkeiten, aber auch detaillierte Beschreibungen zu diversen Gebieten. Wollt ihr ein Szenario als Drache spielen oder als Groot die Welt von Pathfinder unsicher machen, kein Problem.',
+            campaignDescription: 'Als junge Abenteurer brecht ihr von Kassen auf um in der Krypta eurer Vorfahren, den Gründern die letzte Ehre zu erweisen. Leider ist die Krypta nicht so harmlos wie ihr dachtet. Für da Szenario werden Charaktere zur Verfügung gestellt, es können jedoch auch eigene Charaktere(lvl1) aus dem Grundregelwerk und Expertenregeln verwendet werden.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
         'Kevin-Paranoia': {
             name: 'Paranoia (Nur erfahrene Spieler)',
             gm: 'Kevin',
-            gameDescription: 'Paranoia ist ein englischsprachiges satirisches Pen-&-Paper-Rollenspiel, das in einer düsteren Science-Fiction-Umgebung spielt, die Anleihen von Werken wie Catch-22, 1984 und Brazil nimmt.',
-            campaignDescription: 'Umzug, 1 Block, Nur erfahrene Spieler',
+            gameDescription: 'Paranoia ist ein satirisches Pen-&-Paper-Rollenspiel, das in einer düsteren Science-Fiction-Umgebung spielt, die Anleihen von Werken wie Catch-22, 1984 und Brazil nimmt.',
+            campaignDescription: 'Gratulation Troubleshooter. Der Friendly Computer hat euch für eine wichtige Mission ausgewählt, um die Sicherheit im Alpha Complex zu gewährleisten. Meldet euch dazu unverzüglich bei Transportplattform A9:B4:D7:CF und unterstützt Any-B-ODY-6 beim reallozieren essentieller Ressourcen nach Bürokomplex D3:FA:C3:A4. Dies beinhaltet des Befördern wichtiger Frachtgegenstände von den Typen 3MP-7Y-B0X und 3XP-3ND-4BL3-B0X.',
             lang: 'DE',
             playersMax: 4 - RESERVE_SEAT,
         },
@@ -124,7 +124,7 @@ function getGames() {
             name: 'D&D 1st Edition',
             gm: 'Victor',
             gameDescription: 'Dungeons & Dragons (commonly abbreviated as D&D or DnD) is a fantasy tabletop role-playing game (RPG) originally designed by Gary Gygax and Dave Arneson.',
-            campaignDescription: "Tired of hearing old players say 'I was there when THAC0 was a thing'? Now is your time to experience this edition. 'Dragon of Despair' is the first in TSR's series of Dragonlance adventures for use with the AD&D game system. The players will adventure in the world of Krynn, visit strange places such as Haven or ruined Xak Tsaroth, and encounter the bizarre draconians and spectral minions.",
+            campaignDescription: 'Tired of hearing old players say \'I was there when THAC0 was a thing\'? Now is your time to experience this edition. \'Dragon of Despair\' is the first in TSR\'s series of Dragonlance adventures for use with the AD&D game system. The players will adventure in the world of Krynn, visit strange places such as Haven or ruined Xak Tsaroth, and encounter the bizarre draconians and spectral minions.',
             lang: 'EN',
             playersMax: 8 - RESERVE_SEAT,
         },
@@ -150,8 +150,8 @@ function getGames() {
         'Martin-SwordSorcery': {
             name: 'Sword & Sorcery',
             gm: 'Martin',
-            gameDescription: 'Sword & Sorcery ist mein eigenes Rollenspiel, mit Elementen von D&D und Dungeonworld.',
-            campaignDescription: 'Schlüpfe in die Rolle eines Fantasy/Mittelalter Helden um verschiedene Herausforderungen zu meistern.',
+            gameDescription: 'Sword & Sorcery ist mein eigenes Rollenspiel, mit Elementen von D&D und Dungeonworld. Jeder Spieler übernimmt die Rolle eines einzigartigen Charakters, der mit Kreativität, Zusammenarbeit und etwas Glück gefährliche Abenteuer besteht.',
+            campaignDescription: 'Trotze zusammen mit deinen Kameraden den Gefahren der Natur, besiege oder überliste böse Monster und werde belohnt!',
             lang: 'DE',
             playersMax: 4 - RESERVE_SEAT,
         },
@@ -177,8 +177,8 @@ function getGames() {
         'Reto-DnD': {
             name: 'D&D 5e (Für erfahrene Spieler)',
             gm: 'Reto',
-            gameDescription: 'Eigenes Dungeons & Dragons Abenteuer.',
-            campaignDescription: 'Die Goblins von Fährmanns Wald. Warum immer die Heldin oder der Held eines Abenteuers sein? Wenn mann auch einmal ein kleiner grüner Schlitzohr sein kann, wie die Goblins so sind. Ihr seit Untertanen eines Hobgoblins Namens Qrag Bronzehammer. Der euch seit Jahren zu diebische Taten anstiftet aber nun scheint ihm das Gold der armen Bauern kein Reiz mehr zu haben. Ihr seht ihm zu, wie er immer wieder abends zur Burg des Grafen Erick von Pfefferlingen schaut.',
+            gameDescription: 'Eigenes Dungeons & Dragons Abenteuer mit vorgefertigten Charakteren',
+            campaignDescription: 'Warum immer die Heldin oder der Held eines Abenteuers sein? Wenn mann auch einmal ein kleiner grüner Schlitzohr sein kann, wie die Goblins so sind. Ihr seit Untertanen eines Hobgoblins Namens Qrag Bronzehammer. Der euch seit Jahren zu diebische Taten anstiftet aber nun scheint ihm das Gold der armen Bauern kein Reiz mehr zu haben. Ihr seht ihm zu, wie er immer wieder abends zur Burg des Grafen Erick von Pfefferlingen schaut. Was für Pläne geht ihm durch den Kopf?',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -204,8 +204,8 @@ function getGames() {
         'Dominique-DnD': {
             name: 'D&D 5e',
             gm: 'Dominique',
-            gameDescription: '...',
-            campaignDescription: 'Folgt noch.',
+            gameDescription: 'Dungeons & Dragons Abenteuer',
+            campaignDescription: '',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -222,8 +222,8 @@ function getGames() {
         'Flutschi-DnD': {
             name: 'D&D (Einsteigerfreundlich)',
             gm: 'Sandro',
-            gameDescription: 'folgt. (Erscheine ein bisschen früher, um mit dem Spielleiter Sandro gemeinsam einen Charakter zu erstellen).',
-            campaignDescription: 'folgt',
+            gameDescription: 'Abenteuer. Dungeons & Dragons 5. Edition. (Erscheine ein bisschen früher, um mit dem Spielleiter Sandro gemeinsam einen Charakter zu erstellen).',
+            campaignDescription: 'Rosa und ihr jüngerer Bruder Dorne brauchen eure Hilfe! Im Keller ihres Hauses ist ein Monster, das schreckhafte Geräusche von sich gibt. Da die Eltern nicht Zuhause sind, bitten sie euch, euch um das Monster zu kümmern und den kleinen Walter zu finden.',
             lang: 'DE',
             playersMax: 5 - RESERVE_SEAT,
         },
@@ -232,9 +232,27 @@ function getGames() {
             name: 'DSA 5 (Einsteigerfreundlich)',
             gm: 'Martin',
             gameDescription: 'DSA5 ist die 5. Regelversion von Das Schwarze Auge. Es basiert auf der, sehr detailreichen Fantasy-Spielwelt Aventurien.',
-            campaignDescription: 'Folgt noch...',
+            campaignDescription: 'Das Gold der Hügelzwerge. Im Fürstentum Kosch leben Menschen und Zwerge friedlich beisammen. Doch als die Abschrift einer geheimen Bier-Rezeptur auftaucht, schaukeln sich die Gemüter hoch. Gierige Finger strecken sich nach dem kostbaren Pergament, das von einer Truppe wackerer Helden in sichere Hände gebracht werden soll.',
             lang: 'DE',
             playersMax: 3 - RESERVE_SEAT,
+        },
+
+        'Dominic-DnD': {
+            name: 'D&D 5e',
+            gm: 'Dominic',
+            gameDescription: 'Folgt ...',
+            campaignDescription: 'Folgt ...',
+            lang: 'DE',
+            playersMax: 5 - RESERVE_SEAT,
+        },
+
+        'Gregor-DnD': {
+            name: '[SwissRPG] Ghosts of Galvanius (D&D 5e)',
+            gm: 'Gregor \'AGN\' ',
+            gameDescription: 'Dungeons & Dragons 5e is the most iconic tabletop role playing game. It started it all and it\'s the most popular one to this day. Anything you can imagine from the heroic fantasy, you\'ll find here. Become a gnome wizards, a half-orc barbarian, an elf ranger or one many other combinations of races and classes, and go adventuring exploring dungeons, discovering enchanted weapons, and of course, fight anything from goblins to dragons.',
+            campaignDescription: 'A thick coat of mist hangs tightly around the village of Galvanius. Screams can be heard every now and then, things moving in the mist and villagers acting strange....',
+            lang: 'EN',
+            playersMax: 6 - RESERVE_SEAT,
         },
 
         /*
@@ -252,18 +270,18 @@ function getGames() {
 
 function getRounds() {
     return {
-        'Adrian-0': { gameId: 'Adrian-EveryoneIsJohn', day: 'friday', from: 19, to: 22 },
+        'Adrian-0': { gameId: 'Adrian-EveryoneIsJohn', day: 'friday', from: 19, to: 21.5 },
         'Adrian-1': { gameId: 'Adrian-Shadowrun', day: 'friday', from: 22, to: 25 },
         'Adrian-2': { gameId: 'Adrian-EveryoneIsJohn', day: 'saturday', from: 16, to: 19.5 },
         'Adrian-3': { gameId: 'Adrian-Shadowrun', day: 'saturday', from: 19.5, to: 25 },
 
         'Kevin-0': { gameId: 'Kevin-Cthulhu-Zahltag', day: 'friday', from: 19, to: 25 },
-        'Kevin-1': { gameId: 'Kevin-Paranoia', day: 'saturday', from: 13, to: 16 },
+        'Kevin-1': { gameId: 'Kevin-Paranoia', day: 'saturday', from: 13, to: 15.5 },
         'Kevin-2': { gameId: 'Kevin-Cthulhu-Filmriss', day: 'saturday', from: 16, to: 19.5 },
         'Kevin-3': { gameId: 'Kevin-Pathfinder', day: 'saturday', from: 19.5, to: 25 },
 
         'Oliver-0': { gameId: 'Oliver-Workshop', day: 'saturday', from: 19.5, to: 22 },
-        'Oliver-1': { gameId: 'Oliver-SdDf', day: 'saturday', from: 22, to: 25 },
+        'Oliver-1': { gameId: 'Oliver-SdDf', day: 'saturday', from: 22.5, to: 25 },
 
         'Thomas-0': { gameId: 'Thomas-BladesInTheDark', day: 'saturday', from: 19.5, to: 22 },
 
@@ -273,23 +291,23 @@ function getRounds() {
         'Stefan-0': { gameId: 'Stefan-DnD-Aufklaerung', day: 'friday', from: 19.5, to: 25 },
         'Stefan-1': { gameId: 'Stefan-DnD-Befreiung', day: 'saturday', from: 13, to: 19.5 },
 
-        'Victor-0': { gameId: 'Victor-DnD', day: 'saturday', from: 13, to: 16 },
+        'Victor-0': { gameId: 'Victor-DnD', day: 'saturday', from: 13, to: 15.5 },
 
         'Mark-0': { gameId: 'Mark-LaserAndFeelings', day: 'saturday', from: 16, to: 19.5 },
 
-        'Martin-0': { gameId: 'Martin-SwordSorcery', day: 'saturday', from: 13, to: 16 },
+        'Martin-0': { gameId: 'Martin-SwordSorcery', day: 'saturday', from: 13, to: 15.5 },
         'Martin-1': { gameId: 'Martin-SwordSorcery', day: 'saturday', from: 19.5, to: 22 },
 
         'Stephan-0': { gameId: 'Stephan-Earthdawn', day: 'saturday', from: 19.5, to: 22 },
 
-        'Jonas-0': { gameId: 'Jonas-Pathfinder', day: 'saturday', from: 13, to: 16 },
+        'Jonas-0': { gameId: 'Jonas-Pathfinder', day: 'saturday', from: 13, to: 15.5 },
 
         'Reto-0': { gameId: 'Reto-DnD', day: 'saturday', from: 19.5, to: 22 },
 
-        'Lukas-0': { gameId: 'Lukas-DnD', day: 'saturday', from: 13, to: 16 },
+        'Lukas-0': { gameId: 'Lukas-DnD', day: 'saturday', from: 13, to: 15.5 },
 
-        'GianMarco-0': { gameId: 'GianMarco-Dungeonslayer', day: 'friday', from: 19, to: 22 },
-        'GianMarco-1': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 16, to: 19.5 },
+        'GianMarco-0': { gameId: 'GianMarco-Dungeonslayer', day: 'friday', from: 19, to: 21.5 },
+        'GianMarco-1': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 16, to: 18.5 },
         'GianMarco-2': { gameId: 'GianMarco-Dungeonslayer', day: 'saturday', from: 19.5, to: 22 },
 
         'Flutschi-0': { gameId: 'Flutschi-Character', day: 'saturday', from: 13, to: 15.3 },
@@ -298,6 +316,8 @@ function getRounds() {
         'MartinDSA-0': { gameId: 'Martin-DSA', day: 'friday', from: 19, to: 25 },
 
         'Dominique-0': { gameId: 'Dominique-DnD', day: 'saturday', from: 16, to: 19.5 },
+
+        'Gregor-0': { gameId: 'Gregor-DnD', day: 'saturday', from: 13, to: 15.5 },
 
         /*
         'XXX': { gameId: 'XXX', day: 'friday', from: 13, to: 13 },
@@ -308,10 +328,10 @@ function getRounds() {
     };
 }
 
-const APOLLON_UID = '095da522f49aebbd35443fd2349d578a1aaf4a9ea05ae7d59383a5f416d4fd3b';
+const APOLLON_UID = '3cab2e916dd970fb3520477c751c952d7f69adf53fd7feb5d27a31589527bceb';
 
 async function getRegistrations() {
-    const versionApplication = "0.0.0";
+    const versionApplication = '0.0.0';
     const versionServer = (await olymp.status()).version;
     console.assert(versionServer === versionApplication, 'Olymp API Version Mismatch');
 
