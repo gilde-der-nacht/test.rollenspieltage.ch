@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Program Overview</title>
+      <link>https://rollenspieltage.ch/program_overview/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rollenspieltage.ch/program_overview/</guid>
+      <description>Hint: This page is only for the organization and show an overview for all GMs and and overview for all rounds.
+  Login * Password *    Rounds  GMs  Players     &#39;use strict&#39;; async function main(event) { event.preventDefault(); const loginForm = document.getElementById(&#39;apollon-login-form&#39;); const username = loginForm.querySelector(&#39;#login&#39;); const password = loginForm.querySelector(&#39;#password&#39;); const apollon = new ApollonModel({ server: &#39;https://api.gildedernacht.ch&#39;, username: username.value, password: password.value }); username.</description>
+    </item>
+    
+    <item>
       <title>Programm</title>
       <link>https://rollenspieltage.ch/program/</link>
       <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
