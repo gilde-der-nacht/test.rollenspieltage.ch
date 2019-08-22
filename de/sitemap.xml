@@ -5,16 +5,6 @@
   <url>
     <loc>https://rollenspieltage.ch/program_overview/</loc>
     <lastmod>2019-08-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://rollenspieltage.ch/program_overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://rollenspieltage.ch/program_overview/"
-                />
   </url>
   
   <url>
@@ -128,18 +118,8 @@
   </url>
   
   <url>
-    <loc>https://rollenspieltage.ch/program_overview/</loc>
+    <loc>https://rollenspieltage.ch/program_overview.old/</loc>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://rollenspieltage.ch/program_overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://rollenspieltage.ch/program_overview/"
-                />
   </url>
   
 </urlset>

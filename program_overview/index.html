@@ -1,96 +1,298 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<style>
-body {
-    width: 40em;
-    margin: 1em auto;
-}
-</style>
+<html lang="de">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Luzerner Rollenspieltage | Program Overview</title>
+  
+  <meta name="generator" content="Hugo 0.56.3" />
+  
+  <link rel="stylesheet" href="/sass/main.min.5d89c2a1f5018e909684009a545e44e5e22533b278f2134578a6c31f189f5d8d.css" media="screen"
+    integrity="sha256-XYnCofUBjpCWhACaVF5E5eIlM7J48hNFeKbDHxifXY0=" />
+</head>
+  <body>
+    <header>
+  <div id="p-meta-nav">
+    <div class="o-outer-container">
+      <div id="p-site-switcher" class="brand-icon">
+        <a href="/">
+          
+          <object type="image/svg+xml" data="/images/branding/logo.svg" height="40">
+            Luzerner Rollenspieltage
+          </object>
+        </a>
+      </div>
+      <div id="p-language">
+        <ul>
+          <li>
+            Deutsch
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="p-page-nav">
+    <div class="o-outer-container">
+      <div id="p-site-brand">
+        <a href="/">
+          
+          <object type="image/svg+xml" data="/images/branding/wordmark.svg" height="40">
+            Luzerner Rollenspieltage
+          </object>
+        </a>
+      </div>
+      <input type="checkbox" id="p-site-nav-toggle">
+      <nav id="p-site-nav">
+        <ul>
+          
+          <li>
+            <a href="/">Startseite</a>
+          </li>
+          
+          <li>
+            <a href="/program/">Programm</a>
+          </li>
+          
+          <li>
+            <a href="/partner/">Partner</a>
+          </li>
+          
+          <li>
+            <a href="/coc/">Verhaltenskodex</a>
+          </li>
+          
+          <li>
+            <a href="/contact/">Kontakt</a>
+          </li>
+          
+          <li>
+            <a href="/links/">Links</a>
+          </li>
+          
+        </ul>
+      </nav>
+      <label for="p-site-nav-toggle" id="p-site-nav-toggle-label">
+        <span></span>
+      </label>
+    </div>
+  </div>
+</header>
+    <div class="c-jumbotron o-outer-container">
+  
+
+  
+  <h1>Program Overview</h1>
+
+  
+</div>
+    <main class="o-inner-container">
+      
+  
+    <div class="u-toc">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#rounds">Rounds</a></li>
+<li><a href="#gms">GMs</a></li>
+<li><a href="#players">Players</a></li>
+</ul>
+</nav>
+    </div>
+  
+    
+
+<p><em>Hint: This page is only for the organization and show an overview for all GMs and and overview for all rounds.</em></p>
+
+<div><input id="apollon-hide-button" class="c-btn" type="submit" value="Toggle Form Visibility"></div>
+<div class="c-form" id="apollon-login-form">
+<form action="#">
+<div>
+    <p class="c-form--item c-form-field--text">
+        <label for="login">Login *</label>
+        <input name="login" id="login" type="text" placeholder="Login" required />
+    </p>
+    <p class="c-form--item c-form-field--text">
+        <label for="password">Password *</label>
+        <input name="password" id="password" type="password" placeholder="Password" required />
+    </p>
+    <input id="apollon-login-button" class="c-btn" type="submit" value="Login">
+</div>
+</form>
+</div>
+
+<h1 id="rounds">Rounds</h1>
+
+<div id="apollon-rounds-overview"></div>
+
+<h1 id="gms">GMs</h1>
+
+<div id="apollon-gms-overview"></div>
+
+<h1 id="players">Players</h1>
+
+<div id="apollon-players-overview"></div>
 
 <script src="https://api.gildedernacht.ch/olymp.js"></script>
 
 <script src="/scripts/apollon-model.js"></script>
 <script>
-'use strict';
+    'use strict';
 
-async function main() {
-    const games = getGames();
-    const rounds = getRounds();
-    const registrations = await getRegistrations();
+    async function main(event) {
+        event.preventDefault();
+        const loginForm = document.getElementById('apollon-login-form');
+        const username = loginForm.querySelector('#login');
+        const password = loginForm.querySelector('#password');
 
-    
+        const apollon = new ApollonModel({
+            server: 'https://api.gildedernacht.ch',
+            username: username.value,
+            password: password.value
+        });
+
+        username.value = "";
+        password.value = "";
 
 
-    function showRoundsOverview() {
-        const roundsOverviewNode = document.getElementById('apollon-rounds-overview');
-        const fragment = document.createDocumentFragment();
+        const games = apollon.getGames();
+        const rounds = apollon.getRounds();
+        const registrations = await apollon.getRegistrations();
 
-        let html = '';
-        Object.keys(rounds).forEach(roundId => {
-            const round = rounds[roundId];
-            const game = games[round.gameId];
-            html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
-            registrations.forEach(registration => {
-                registration.publicBody.rounds.forEach(registrationRoundId => {
-                    if(registrationRoundId === roundId) {
-                        const name = `${registration.privateBody.name} - ${registration.privateBody.email}`;
-                        html += '<div>' + name + '</div>';
-                    }
+        /*
+        TODO
+
+        showRoundsOverview & showGmsOverview are written a bit ugly and just create a HTML.
+        For a proof of concepts this is enough. If this functionality is further used, some kind
+        of a template should be used.
+        */
+
+        function showRoundsOverview() {
+            const roundsOverviewNode = document.getElementById('apollon-rounds-overview');
+            const fragment = document.createDocumentFragment();
+
+            let html = '';
+            Object.keys(rounds).forEach(roundId => {
+                const round = rounds[roundId];
+                const game = games[round.gameId];
+                html += '<h2>' + game.name + ' - ' + game.gm + '</h2>';
+                html += '<h6>' + round.day + ', from ' + round.from + ' to ' + round.to + ' / Max players: ' + (game.playersMax + RESERVE_SEAT) + '</h6>';
+
+                html += '<ol>';
+                registrations.forEach(registration => {
+                    registration.publicBody.rounds.forEach(registrationRoundId => {
+                        if (registrationRoundId === roundId) {
+                            const name =
+                                `${registration.privateBody.name} - ${registration.privateBody.email}`;
+                            html += '<li>' + name + '</li>';
+                        }
+                    });
                 });
+                html += '</ol>';
             });
-        });
-        roundsOverviewNode.innerHTML = html;
+            roundsOverviewNode.innerHTML = html;
+        }
+
+        function showGmsOverview() {
+            const gmsOverviewNode = document.getElementById('apollon-gms-overview');
+            const fragment = document.createDocumentFragment();
+
+            const gms = {};
+            Object.keys(rounds).forEach(roundId => {
+                const round = rounds[roundId];
+                const game = games[round.gameId];
+                if (!(game.gm in gms)) {
+                    gms[game.gm] = [];
+                }
+                gms[game.gm].push(round);
+            });
+
+            let html = '';
+            Object.keys(gms).forEach(gm => {
+                html += '<h2>' + gm + '</h2>';
+
+                html += '<ol>';
+                gms[gm].forEach(round => {
+                    html += '<li>' + games[round.gameId].name + ' / ' + round.day + ', from ' + round.from + ' to ' + round.to + '</li>';
+                });
+                html += '</ol>';
+            });
+            gmsOverviewNode.innerHTML = html;
+        }
+
+        function showPlayersOverview() {
+            const playersOverviewNode = document.getElementById('apollon-players-overview');
+
+            let html = '';
+            registrations.forEach(registration => {
+                html += '<h2>' + registration.privateBody.name + '</h2>';
+                html += '<h6>' + registration.privateBody.email + '</h6>';
+                html += '<p><em>Comment: ' + registration.privateBody.comment + '</em></p>';
+
+                html += '<ol>';
+                registration.publicBody.rounds.forEach(roundId => {
+                    const round = rounds[roundId];
+                    const game = games[round.gameId];
+
+                    html +='<li>' + games[round.gameId].name + ' / ' + round.day + ', from ' + round.from + ' to ' + round.to + '</li>';
+                });
+                html += '</ol>';
+            });
+
+            playersOverviewNode.innerHTML = html;
+        }
+
+        showRoundsOverview();
+        showGmsOverview();
+        showPlayersOverview();
     }
 
-    function showGmsOverview() {
-        const gmsOverviewNode = document.getElementById('apollon-gms-overview');
-        const fragment = document.createDocumentFragment();
+    function hideForm(event) {
+        event.preventDefault();
+        const loginForm = document.getElementById('apollon-login-form');
 
-        const gms = {};
-        Object.keys(rounds).forEach(roundId => {
-            const round = rounds[roundId];
-            const game = games[round.gameId];
-            if(!(game.gm in gms)) {
-                gms[game.gm] = [];
-            }
-            gms[game.gm].push(round);
-        });
-
-        let html = '';
-        Object.keys(gms).forEach(gm => {
-            html += '<h2>' + gm + '</h2>';
-            gms[gm].forEach(round => {
-                html += '<p>' + games[round.gameId].name + ' ' + round.day + ' ' + round.from + '-' + round.to + '</p>';
-            });
-        });
-        gmsOverviewNode.innerHTML = html;
+        if (loginForm.style.display == 'none') {
+            loginForm.style.display = 'initial';
+        } else {
+            loginForm.style.display = 'none';
+        }
     }
 
-    showRoundsOverview();
-    showGmsOverview();
-}
-
-window.addEventListener('load', main);
+    document.getElementById('apollon-login-button').addEventListener('click', main);
+    document.getElementById('apollon-hide-button').addEventListener('click', hideForm);
 </script>
-</head>
-<body>
-
-<p>
-Hint: This page is only for the organization and show an overview for all GMs and and overview for all rounds.
-</p>
-
-<h1>Rounds</h1>
-
-<div id="apollon-rounds-overview"></div>
-
-<h1>GMs</h1>
-
-<div id="apollon-gms-overview"></div>
-
-<h1>Public</h1>
 
 
-</body>
+    </main>
+    <footer>
+  <div class="o-outer-container">
+    <div class="p-footer">
+      Die Luzerner Rollenspieltage werden organisiert durch den Spielverein, <a href="https://gildedernacht.ch">Gilde der Nacht</a>.
+    </div>
+    <div class="p-social">
+
+      
+      
+      <a href="http://chat.gildedernacht.ch/">
+        <img src="/images/Discord-Logo&#43;Wordmark-White.svg" alt="Discord">
+      </a>
+      
+
+      
+      
+      <a href="https://www.meetup.com/de-DE/Spieltreffen-Luzern/events/261972612/">
+        <img src="/images/meetup-logo-script-white.svg" alt="Meetup">
+      </a>
+      
+
+      
+      
+      <a href="https://www.facebook.com/events/417456298837224/">
+        <img src="/images/f_logo_RGB-White_1024.svg" alt="Facebook">
+      </a>
+      
+
+    </div>
+  </div>
+</footer>
+  </body>
 </html>
