@@ -11,35 +11,6 @@
     
     
     <item>
-      <title>Program</title>
-      <link>https://rollenspieltage.ch/en/program/</link>
-      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rollenspieltage.ch/en/program/</guid>
-      <description>Online registration has ended.
-Please write us if you have any questions concerning your registration or future Rollenspieltage.
--
--
--
--
--
--
--
--
--
--
-
- Game Master: 
-Game System Description: 
-Story: 
-Language:  Day and Time: ,  &amp;mdash; 
-Players currently:  / Max: 
-
-  
-  Name Day from to</description>
-    </item>
-    
-    <item>
       <title>Contact</title>
       <link>https://rollenspieltage.ch/en/contact/</link>
       <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
@@ -69,20 +40,6 @@ If a person behaves in a way that makes you or someone else feel insecure, uncom
       <guid>https://rollenspieltage.ch/en/newsletter/</guid>
       <description>First name *   Family name *   Email address *  Interests Luzerner Spieltage Board games Luzerner Rollenspieltage Role-playing games Luzerner Tabletoptag Tabletop games  Please choose at least one topic.
       (function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = &#39;EMAIL&#39;; ftypes[0] = &#39;email&#39;; fnames[1] = &#39;FNAME&#39;; ftypes[1] = &#39;text&#39;; fnames[2] = &#39;LNAME&#39;; ftypes[2] = &#39;text&#39;; }(jQuery)); var $mcj = jQuery.</description>
-    </item>
-    
-    <item>
-      <title>Partners</title>
-      <link>https://rollenspieltage.ch/en/partner/</link>
-      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rollenspieltage.ch/en/partner/</guid>
-      <description>GamePlace gameplace.ch
-Roleplaying fanatics at work.
-Freakatorium freakatorium.ch
-The freaks you trust, also when it comes to role-playing! We will be happy to provide you with a basic product range at the Rollenspieltag!
-Mannsgöggeli mannsgoeggeli.ch
-In addition to the Bourbaki, the Metzgerhalle and the Neubad, this year we are also bringing our board game collection to the Luzerner Rollenspieltage. Relax after an exhausting role-playing game with a sporty Lucky Salmon or plunge into a galactic adventure in Cosmic Encounters.</description>
     </item>
     
     <item>

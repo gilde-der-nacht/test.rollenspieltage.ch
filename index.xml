@@ -21,35 +21,6 @@
     </item>
     
     <item>
-      <title>Programm</title>
-      <link>https://rollenspieltage.ch/program/</link>
-      <pubDate>Fri, 21 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rollenspieltage.ch/program/</guid>
-      <description>Die Online-Anmeldung ist zu Ende.
-Schreib uns doch übers Kontaktformular, wenn du Fragen zu deiner Anmeldung oder zukünftigen Rollenspieltagen hast.
--
--
--
--
--
--
--
--
--
--
-
- Spielleiter: 
-Spielbeschreibung: 
-Kampagnenbeschreibung: 
-Sprache:  Tag und Zeit: ,  &amp;mdash;  Uhr
-Spieler Aktuell:  / Max: 
-
-  
-  Name Tag von bis</description>
-    </item>
-    
-    <item>
       <title>Kontakt</title>
       <link>https://rollenspieltage.ch/contact/</link>
       <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
@@ -81,20 +52,6 @@ Keiner der folgenden Link ist ein Affiliate-Link. Kostenpflichtige Links sind je
       <guid>https://rollenspieltage.ch/newsletter/</guid>
       <description> Vorname *   Nachname *   E-Mail Adresse *  Interessen Luzerner Spieltage Brettspiele Luzerner Rollenspieltage Rollenspiele Luzerner Tabletoptag Tabletop  Bitte wähle mindestens ein Interesse aus.
       (function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = &#39;EMAIL&#39;; ftypes[0] = &#39;email&#39;; fnames[1] = &#39;FNAME&#39;; ftypes[1] = &#39;text&#39;; fnames[2] = &#39;LNAME&#39;; ftypes[2] = &#39;text&#39;; }(jQuery)); var $mcj = jQuery.noConflict(true);   </description>
-    </item>
-    
-    <item>
-      <title>Partner</title>
-      <link>https://rollenspieltage.ch/partner/</link>
-      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rollenspieltage.ch/partner/</guid>
-      <description>GamePlace gameplace.ch
-Rollenspielfanatiker am Werk.
-Freakatorium freakatorium.ch
-Die Freaks deines Vertrauens, auch beim Rollenspiel! Gerne sind wir mit einem Grundsortiment an den Rollenspieltagen für euch dabei!
-Mannsgöggeli mannsgoeggeli.ch
-Neben dem Bourbaki, der Metzgerhalle und dem Neubad bringen wir dieses Jahr auch an die Rollenspieltage unsere Brettspielsammlung. Entspanne nach einem anstrengenden Rollenspiel mit einem sportlichen Lucky Lachs oder stürze dich in ein galaktisches Abenteuer in Cosmic Encounters. Wir haben für alle etwas dabei!</description>
     </item>
     
     <item>
