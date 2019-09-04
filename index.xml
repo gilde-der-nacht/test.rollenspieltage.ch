@@ -79,7 +79,7 @@ Keiner der folgenden Link ist ein Affiliate-Link. Kostenpflichtige Links sind je
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rollenspieltage.ch/newsletter/</guid>
-      <description> Vorname *   Nachname *   E-Mail Adresse *  Interessens Luzerner Spieltage Brettspiele Luzerner Rollenspieltage Rollenspiele Luzerner Tabletoptag Tabletop  Bitte wähle mindestens ein Interesse aus.
+      <description> Vorname *   Nachname *   E-Mail Adresse *  Interessen Luzerner Spieltage Brettspiele Luzerner Rollenspieltage Rollenspiele Luzerner Tabletoptag Tabletop  Bitte wähle mindestens ein Interesse aus.
       (function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = &#39;EMAIL&#39;; ftypes[0] = &#39;email&#39;; fnames[1] = &#39;FNAME&#39;; ftypes[1] = &#39;text&#39;; fnames[2] = &#39;LNAME&#39;; ftypes[2] = &#39;text&#39;; }(jQuery)); var $mcj = jQuery.noConflict(true);   </description>
     </item>
     
