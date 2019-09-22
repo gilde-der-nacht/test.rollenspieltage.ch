@@ -18,6 +18,36 @@
   </url>
   
   <url>
+    <loc>https://rollenspieltage.ch/en/gallery/</loc>
+    <lastmod>2019-05-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://rollenspieltage.ch/gallery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rollenspieltage.ch/en/gallery/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://rollenspieltage.ch/en/blog/</loc>
+    <lastmod>2019-04-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://rollenspieltage.ch/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rollenspieltage.ch/en/blog/"
+                />
+  </url>
+  
+  <url>
     <loc>https://rollenspieltage.ch/en/coc/</loc>
     <lastmod>2019-04-01T00:00:00+00:00</lastmod>
     <xhtml:link
