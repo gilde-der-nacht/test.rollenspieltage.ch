@@ -44,6 +44,7 @@ const updateCompanion = () => {
     const companionCount = companions.value;
     const companionOutput = document.querySelector('#companion-output');
     const template = document.querySelector('#companion-name').content;
+    companionOutput.textContent = '';
 
     for (let i = 0; i < companionCount; i++) {
         template.querySelector('input').name = 'companion-' + i;
@@ -124,6 +125,12 @@ const sendRegistration = (e) => {
             }
         });
         data.workshops = workshops;
+
+        const listCompanions = document.querySelector('#companion-output').querySelectorAll('input');
+        data.companions = {
+            count : companions.value,
+            names: [...listCompanions].map(e => e.value)
+        }
 
     }
 
