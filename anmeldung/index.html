@@ -1,14 +1,14 @@
 <!doctype html><html lang=de><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Luzerner Rollenspieltage | Anmeldung</title><meta name=generator content="Hugo 0.83.1"><link rel=stylesheet href=/sass/main.min.65e9c65f2320319b052aaa767a12a3ba6aea15908550e24ef5b85f3bacf78584.css media=screen integrity="sha256-ZenGXyMgMZsFKqp2ehKjumrqFZCFUOJO9bhfO6z3hYQ="><script defer src=/scripts/apollon.js></script><script src=https://kit.fontawesome.com/ed5a2d737b.js crossorigin=anonymous></script></head><body><header><div id=p-meta-nav><div class=o-outer-container><div id=p-site-switcher class=brand-icon><a href=/><object type=image/svg+xml data=/images/branding/logo.svg height=40>
 Luzerner Rollenspieltage</object></a></div><div id=p-language><ul><li>Deutsch</li></ul></div></div></div><div id=p-page-nav><div class=o-outer-container><div id=p-site-brand><a href=/><object type=image/svg+xml data=/images/branding/wordmark.svg height=40>
 Luzerner Rollenspieltage</object></a></div><input type=checkbox id=p-site-nav-toggle><nav id=p-site-nav><ul><li><a href=/>Startseite</a></li><li><a href=/verhaltenskodex/>Verhaltenskodex</a></li><li><a href=/kontakt/>Kontakt</a></li><li><a href=/links/>Links</a></li></ul></nav><label for=p-site-nav-toggle id=p-site-nav-toggle-label><span></span></label></div></div></header><div class="c-jumbotron o-outer-container"><h1>Anmeldung</h1></div><main class=o-inner-container><div class=c-form><form action=https://api.gildedernacht.ch/form/38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf method=post><div><fieldset><p class="c-form--item c-form-field--text"><label for=private-name>Name *</label>
-<input name=private-name id=private-name type=text placeholder=Name required></p><p class="c-form--item c-form-field--text"><label for=private-email>E-Mail *</label>
-<input name=private-email id=private-email type=email placeholder=E-Mail required></p><div><label>Anmeldung als</label>
+<input name=private-name id=private-name type=text placeholder=Name value=required></p><p class="c-form--item c-form-field--text"><label for=private-email>E-Mail *</label>
+<input name=private-email id=private-email type=email placeholder=E-Mail value=required></p><div class="c-form--item c-form-field--text"><label>Anmeldung als</label>
 <small>treffe bitte mindestens eine Auswahl</small><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-participant-role checked zgotmplz>
 Spieler:in</label></p><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-gamemaster-role zgotmplz>
 Spielleiter:in</label></p></div><p class="c-form--item c-form-field--text"><label>Wähle deine Balance</label>
-<label>mehr Spielen
+<label>Spielen
 <input type=range name=participant-gamemaster-balance min=1 max=3>
-mehr Spielleiten</label></p><div><label>Sprache</label>
+Spielleiten</label></p><div class="c-form--item c-form-field--text"><label>Sprache</label>
 <small>treffe bitte mindestens eine Auswahl</small><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-language-german checked zgotmplz>
 Deutsch</label></p><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-language-english zgotmplz>
 Englisch</label></p></div>Zeitfenster (1 Stunden Slots)</fieldset><fieldset><legend>Spieler:in</legend><p class="c-form--item c-form-field--text"><label>Arten von Spielrunden</label>
@@ -23,17 +23,18 @@ egal</label></p>Genres (Skala Gerne-Egal-Lieber nicht)
 Workshops/Diskussionsrunden (Skala Gerne-Egal-Lieber nicht)
 <i class="fas fa-camera"></i>
 * Vorauswahl
-* Sonstiges (Eingabe)
-Beigleitpersonen (Namen optional)</fieldset><fieldset><legend>Spielleiter:in</legend><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-gamemaster-buddy zgotmplz>
-Buddy-System, Unterstützung gewünscht</label></p>Pro Spielrunde<p class="c-form--item c-form-field--text"><label for=private-game-title>Titel *</label>
-<input name=private-game-title id=private-game-title type=text placeholder required></p><p class="c-form--item c-form-field--text"><label for=private-game-description>Beschreibung</label>
+* Sonstiges (Eingabe)<p class="c-form--item c-form-field--text"><label for=private-companions>Beigleitpersonen</label>
+<input name=private-companions id=private-companions type=number placeholder value=0 min=0 max=99 zgotmplz></p></fieldset><fieldset><legend>Spielleiter:in</legend><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-gamemaster-buddy zgotmplz>
+Buddy-System, Unterstützung gewünscht</label></p><p class="c-form--item c-form-field--text"><label for=private-game-title>Titel *</label>
+<input name=private-game-title id=private-game-title type=text placeholder value=required></p><p class="c-form--item c-form-field--text"><label for=private-game-description>Beschreibung</label>
 <textarea name=private-game-description id=private-game-description placeholder=Beschreibung zgotmplz></textarea></p>Genres
 * Vorauswahl
 * Sonstiges (Eingabe)<p class="c-form--item c-form-field--text"><label for=private-game-duration>Dauer (in Stunden) *</label>
-<input name=private-game-duration id=private-game-duration type=number placeholder required></p><div><label>Anzahl Spieler:innen</label>
+<input name=private-game-duration id=private-game-duration type=number placeholder value=3 min=0 max=99 required></p><div class="c-form--item c-form-field--text"><label>Anzahl Spieler:innen</label>
 <small>treffe bitte mindestens eine Auswahl</small><p class="c-form--item c-form-field--text"><label for=private-game-playercount-min>Minimum *</label>
-<input name=private-game-playercount-min id=private-game-playercount-min type=number placeholder required></p><p class="c-form--item c-form-field--text"><label for=private-game-playercount-max>Maximum *</label>
-<input name=private-game-playercount-max id=private-game-playercount-max type=number placeholder required></p></div></fieldset><fieldset><legend>Abschluss</legend><div><label>Helferaufruf</label>
+<input name=private-game-playercount-min id=private-game-playercount-min type=number placeholder value=2 min=0 max=99 required></p><p class="c-form--item c-form-field--text"><label for=private-game-playercount-max>Maximum *</label>
+<input name=private-game-playercount-max id=private-game-playercount-max type=number placeholder value=5 min=0 max=99 required></p></div><p class="c-form--item c-form-field--text"><label for=private-game-slots-reserved>Stammspieler</label>
+<input name=private-game-slots-reserved id=private-game-slots-reserved type=number placeholder value=0 min=0 max=99 zgotmplz></p></fieldset><fieldset><legend>Abschluss</legend><div class="c-form--item c-form-field--text"><label>Helferaufruf</label>
 <small>ganz alleine würden wir die Rollenspieltage nicht durchführen können</small><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-helper-logistic zgotmplz>
 Aufbau/Abbau</label></p><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-helper-checkout zgotmplz>
 Kasse (Buffet oder Flohmarkt)</label></p><p class="c-form--item c-form-field--text"><label><input type=checkbox name=private-helper-kitchen zgotmplz>
