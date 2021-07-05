@@ -43,7 +43,7 @@ class NumberInput extends React.Component {
   }
 
   getLabel = () => {
-    return this.props.label + (this.props.required ? "*" : "");
+    return this.props.label + (this.props.required ? " *" : "");
   };
 
   render() {
@@ -72,7 +72,7 @@ class TextArea extends React.Component {
   }
 
   getLabel = () => {
-    return this.props.label + (this.props.required ? "*" : "");
+    return this.props.label + (this.props.required ? " *" : "");
   };
 
   render() {
@@ -97,7 +97,7 @@ class TextInput extends React.Component {
   }
 
   getLabel = () => {
-    return this.props.label + (this.props.required ? "*" : "");
+    return this.props.label + (this.props.required ? " *" : "");
   };
 
   render() {
@@ -129,7 +129,7 @@ class Checkmark extends React.Component {
       {},
       e(
         "label",
-        {},
+        { className: this.props.state ? "active" : "" },
         e("input", {
           type: "checkbox",
           name: this.props.name,
@@ -148,16 +148,18 @@ class CheckmarkGroup extends React.Component {
   }
 
   renderCheckmarks = () => {
-    return this.props.options.map((option) => e(Checkmark, option));
+    return this.props.options.map((option) =>
+      e("li", null, e(Checkmark, option))
+    );
   };
 
   render() {
     return e(
-      React.Fragment,
-      {},
-      this.props.title && e("h2", {}, this.props.title),
+      "div",
+      { className: this.props.className },
+      this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
-      ...this.renderCheckmarks()
+      e("ul", null, ...this.renderCheckmarks())
     );
   }
 }
@@ -202,7 +204,7 @@ class RadioGroup extends React.Component {
     return e(
       React.Fragment,
       {},
-      this.props.title && e("h2", {}, this.props.title),
+      this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
       ...this.renderRadios()
     );
@@ -278,7 +280,7 @@ class Grid extends React.Component {
     return e(
       "div",
       {},
-      e("h2", {}, this.props.title),
+      e("h3", {}, this.props.title),
       ...this.renderList(),
       this.renderAddEntry()
     );
@@ -484,73 +486,6 @@ class EditGame extends React.Component {
 
 // Sections
 
-class IntroRoleSection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  updateStateIntroRole = (event) => {
-    this.props.updateStateIntro("role", {
-      ...this.props.state,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
-  renderSlider = () => {
-    if (this.props.state.player && this.props.state.gamemaster) {
-      return e(
-        "p",
-        {},
-        e("strong", {}, "Wähle deine Balance"),
-        e(
-          "label",
-          {},
-          "Spielen",
-          e("input", {
-            type: "range",
-            name: "balance",
-            min: 1,
-            max: 3,
-            value: this.props.roleBalance,
-            onChange: (event) =>
-              this.props.updateStateIntro("role", {
-                ...this.props.state,
-                roleBalance: Number(event.target.value),
-              }),
-          }),
-          "Spielleiten"
-        )
-      );
-    }
-  };
-
-  render() {
-    return e(
-      React.Fragment,
-      {},
-      e(CheckmarkGroup, {
-        title: "Anmeldung als",
-        description: "triff bitte mindestens eine Auswahl",
-        options: [
-          {
-            label: "Spieler:in",
-            name: "player",
-            state: this.props.state.player,
-            onChange: this.updateStateIntroRole,
-          },
-          {
-            label: "Spielleiter:in",
-            name: "gamemaster",
-            state: this.props.state.gamemaster,
-            onChange: this.updateStateIntroRole,
-          },
-        ],
-      }),
-      this.renderSlider()
-    );
-  }
-}
-
 class IntroLanguageSection extends React.Component {
   constructor(props) {
     super(props);
@@ -568,6 +503,9 @@ class IntroLanguageSection extends React.Component {
       React.Fragment,
       {},
       e(CheckmarkGroup, {
+        title: "Sprache",
+        description: "triff bitte mindestens eine Auswahl",
+        className: "c-apollon-options",
         options: [
           {
             label: "Deutsch",
@@ -582,8 +520,6 @@ class IntroLanguageSection extends React.Component {
             onChange: this.updateStateIntroLanguage,
           },
         ],
-        title: "Sprache",
-        description: "triff bitte mindestens eine Auswahl",
       })
     );
   }
@@ -647,6 +583,7 @@ class IntroSection extends React.Component {
     return e(
       "fieldset",
       {},
+      e("h2", null, "Einstieg"),
       e(TextInput, {
         name: "name",
         placeholder: "Name",
@@ -663,15 +600,11 @@ class IntroSection extends React.Component {
         state: this.props.state.email,
         handleChange: this.updateStateIntro,
       }),
-      e(IntroRoleSection, {
-        updateStateIntro: this.updateStateIntro,
-        state: this.props.state.role,
-      }),
       e(IntroLanguageSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.languages,
       }),
-      e("h2", {}, "Zeitfenster"),
+      e("h3", {}, "Zeitfenster"),
       e(IntroTimeSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.time,
@@ -726,7 +659,17 @@ class PlayerSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("legend", {}, "Spieler:in"),
+      e("h2", {}, "Spielen"),
+      e(CheckmarkGroup, {
+        options: [
+          {
+            label: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
+            name: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
+            state: this.props.state.role,
+            onChange: (e) => this.updateStatePlayer("role", e.target.checked),
+          },
+        ],
+      }),
       e(RadioGroup, {
         options: [
           {
@@ -895,7 +838,18 @@ class GamemasterSection extends React.Component {
     return e(
       "fieldset",
       {},
-      e("legend", {}, "Spielleiter:in"),
+      e("h2", {}, "Spielleiten"),
+      e(CheckmarkGroup, {
+        options: [
+          {
+            label: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
+            name: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
+            state: this.props.state.role,
+            onChange: (e) =>
+              this.updateStateGamemaster("role", e.target.checked),
+          },
+        ],
+      }),
       e(CheckmarkGroup, {
         options: [
           {
@@ -944,10 +898,12 @@ class OutroSection extends React.Component {
     return e(
       "fieldset",
       {},
+      e("h2", null, "Abschluss"),
       e(CheckmarkGroup, {
         title: "Helferaufruf",
         description:
           "ganz alleine würden wir die Rollenspieltage nicht durchführen können",
+        className: "c-apollon-options",
         options: this.props.state.helping.map((help) => {
           return {
             label: help.label,
@@ -977,6 +933,81 @@ class OutroSection extends React.Component {
     );
   }
 }
+class StepSection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.steps = [
+      {
+        step: 1,
+        name: "Einstieg",
+      },
+      {
+        step: 2,
+        name: "Spielen",
+      },
+      {
+        step: 3,
+        name: "Spielleiten",
+      },
+      {
+        step: 4,
+        name: "Abschluss",
+      },
+    ];
+  }
+
+  updateStateStep = (e, step) => {
+    e.preventDefault();
+    if (step >= 1 && step <= this.steps.length) {
+      this.props.updateState("step", step);
+    }
+  };
+
+  render() {
+    return e(
+      "ul",
+      { className: "c-apollon-steps" },
+      e(
+        "li",
+        {
+          className: this.props.state === 1 ? "disabled" : "",
+        },
+        e(
+          "button",
+          { onClick: (e) => this.updateStateStep(e, this.props.state - 1) },
+          "«"
+        )
+      ),
+      this.steps.map((step) =>
+        e(
+          "li",
+          {
+            className: this.props.state === step.step ? "active" : "",
+            key: step.step,
+          },
+          e(
+            "button",
+            { onClick: (e) => this.updateStateStep(e, step.step) },
+            e("small", null, step.step),
+            e("br"),
+            step.name
+          )
+        )
+      ),
+      e(
+        "li",
+        {
+          className: this.props.state === this.steps.length ? "disabled" : "",
+        },
+        e(
+          "button",
+          { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
+          "»"
+        )
+      )
+    );
+  }
+}
 
 // Global
 
@@ -987,7 +1018,6 @@ class Form extends React.Component {
       intro: {
         name: "",
         email: "",
-        role: { player: true, gamemaster: false, roleBalance: 2 },
         languages: {
           german: true,
           english: false,
@@ -1004,6 +1034,7 @@ class Form extends React.Component {
         },
       },
       player: {
+        role: true,
         gameroundTypes: "whatever",
         genres: [
           {
@@ -1033,6 +1064,7 @@ class Form extends React.Component {
         },
       },
       gamemaster: {
+        role: false,
         buddy: false,
         games: [],
         gameInEdit: {},
@@ -1057,6 +1089,7 @@ class Form extends React.Component {
         ],
         questions: "",
       },
+      step: 1,
     };
   }
 
@@ -1072,25 +1105,35 @@ class Form extends React.Component {
           "https://api.gildedernacht.ch/form/38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf",
         method: "POST",
       },
-      e(IntroSection, {
-        state: this.state.intro,
+      e(StepSection, {
+        state: this.state.step,
         updateState: this.updateState,
       }),
-      this.state.intro.role.player &&
+      this.state.step === 1 &&
+        e(IntroSection, {
+          state: this.state.intro,
+          updateState: this.updateState,
+        }),
+      this.state.step === 2 &&
         e(PlayerSection, {
           state: this.state.player,
           updateState: this.updateState,
         }),
-      this.state.intro.role.gamemaster &&
+      this.state.step === 3 &&
         e(GamemasterSection, {
           state: this.state.gamemaster,
           updateState: this.updateState,
         }),
-      e(OutroSection, {
-        state: this.state.outro,
+      this.state.step === 4 &&
+        e(OutroSection, {
+          state: this.state.outro,
+          updateState: this.updateState,
+        }),
+      e(StepSection, {
+        state: this.state.step,
         updateState: this.updateState,
       }),
-      e("p", null, JSON.stringify(this.state, null, 2))
+      e("code", null, JSON.stringify(this.state, null, 2))
     );
   }
 }
