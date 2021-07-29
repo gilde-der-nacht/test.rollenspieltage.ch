@@ -25,12 +25,16 @@ class AddElement extends React.Component {
         onChange: (event) => this.setState({ input: event.target.value }),
         onKeyPress: (event) => event.code === "Enter" && this.addElement(),
       }),
-      e("input", {
-        type: "button",
-        onClick: this.addElement,
-        className: "c-btn",
-        value: this.props.button,
-      })
+      e(
+        "button",
+        {
+          onClick: this.addElement,
+          className: "c-btn",
+        },
+        this.props.icon ? e("i", { className: this.props.icon }) : "",
+        " ",
+        this.props.button
+      )
     );
   }
 }
@@ -206,7 +210,11 @@ class RadioGroup extends React.Component {
       this.props.description && e("p", {}, this.props.description),
       e(
         "div",
-        { className: "c-apollon-radio-group " + this.props.className },
+        {
+          className:
+            "c-apollon-radio-group " +
+            (this.props.className ? this.props.className : ""),
+        },
         ...this.renderRadios()
       )
     );
@@ -219,20 +227,26 @@ class GridLabel extends React.Component {
   }
 
   renderDeleteButton = () => {
-    return e("input", {
-      type: "button",
-      className: "c-btn",
-      onClick: this.props.onClick,
-      value: i18n.general.delete,
-    });
+    return e(
+      "button",
+      {
+        className: "c-btn delete",
+        onClick: this.props.onClick,
+      },
+      e("i", { className: "fas fa-trash" })
+    );
   };
 
   render() {
     return e(
       React.Fragment,
       {},
-      e("h3", {}, this.props.children),
-      !this.props.fix && this.renderDeleteButton()
+      e(
+        "h4",
+        {},
+        this.props.children,
+        !this.props.fix && this.renderDeleteButton()
+      )
     );
   }
 }
@@ -280,7 +294,8 @@ class Grid extends React.Component {
     return e(AddElement, {
       name: "newEntry",
       label: this.props.missingEntry,
-      button: "+ " + i18n[this.props.type].addLabel,
+      icon: "fas fa-plus-square",
+      button: i18n[this.props.type].addLabel,
       handleClick: this.props.addEntryToGrid,
     });
   };
@@ -290,7 +305,15 @@ class Grid extends React.Component {
       "div",
       {},
       e("h3", {}, this.props.title),
-      ...this.renderList(),
+      e(
+        "div",
+        {
+          className:
+            "c-apollon-grid" +
+            (this.props.type === "genres" ? " four" : " three"),
+        },
+        ...this.renderList()
+      ),
       this.renderAddEntry()
     );
   }
@@ -311,12 +334,14 @@ class GamemasterGames extends React.Component {
           React.Fragment,
           { key: entry.id },
           e("hr"),
-          e("input", {
-            type: "button",
-            className: "c-btn",
-            onClick: () => this.props.editGame(entry.id),
-            value: i18n.gamemastering.editGameround,
-          }),
+          e(
+            "button",
+            {
+              className: "c-btn",
+              onClick: () => this.props.editGame(entry.id),
+            },
+            i18n.gamemastering.editGameround
+          ),
           e("h3", {}, entry.title),
           e("p", {}, entry.description),
           e(
@@ -389,12 +414,15 @@ class EditGame extends React.Component {
 
   render() {
     if (Object.entries(this.props.state).length === 0) {
-      return e("input", {
-        type: "button",
-        className: "c-btn",
-        onClick: this.props.newEmptyGame,
-        value: i18n.gamemastering.addAGameround,
-      });
+      return e(
+        "button",
+        {
+          className: "c-btn",
+          onClick: this.props.newEmptyGame,
+        },
+        e("i", { className: "fas fa-plus-square" }),
+        " " + i18n.gamemastering.addAGameround
+      );
     }
 
     return e(
@@ -433,7 +461,8 @@ class EditGame extends React.Component {
       e(AddElement, {
         name: "newGenre",
         label: i18n.genres.missingGenre,
-        button: "+ " + i18n.genres.addLabel,
+        button: i18n.genres.addLabel,
+        icon: "fas fa-plus-square",
         handleClick: (name) =>
           this.updateStateNewGame("genres", [
             ...this.props.state.genres,
@@ -489,19 +518,23 @@ class EditGame extends React.Component {
       e(
         "div",
         { className: "c-apollon-horizontal" },
-        e("input", {
-          type: "button",
-          className: "c-btn",
-          onClick: this.props.deleteGame,
-          value: i18n.gamemastering.deleteGameround,
-        }),
-        e("input", {
-          type: "button",
-          className: "c-btn",
-          styles: "margin-left: 10px",
-          onClick: this.props.addGame,
-          value: i18n.gamemastering.saveGameround,
-        })
+        e(
+          "button",
+          {
+            className: "c-btn",
+            onClick: this.props.deleteGame,
+          },
+          i18n.gamemastering.deleteGameround
+        ),
+        e(
+          "button",
+          {
+            className: "c-btn",
+            styles: "margin-left: 10px",
+            onClick: this.props.addGame,
+          },
+          i18n.gamemastering.saveGameround
+        )
       )
     );
   }
@@ -569,7 +602,14 @@ class IntroTimeSection extends React.Component {
       options: Object.keys(entries).map((key) => {
         const e = entries[key];
         return {
-          label: key + " - " + (Number(key) + 1) + " " + i18n.time.hour,
+          label:
+            key +
+            " " +
+            String.fromCharCode(8211) +
+            " " +
+            (Number(key) + 1) +
+            " " +
+            i18n.time.hour,
           name: key,
           state: e,
           onChange: (event) => this.updateStateIntroTime(day, event),
@@ -616,7 +656,7 @@ class IntroSection extends React.Component {
       {},
       e("h2", null, i18n.phases.intro),
       e(TextInput, {
-        name: i18n.fields.name,
+        name: "name",
         placeholder: i18n.fields.name,
         label: i18n.fields.name,
         required: true,
@@ -715,22 +755,23 @@ class PlayerSection extends React.Component {
                 this.updateStatePlayer("gameroundTypes", event.target.value),
             },
             {
-              label: i18n.gaming.gameroundTypes.long,
-              name: "long",
-              state: "long" === this.props.state.gameroundTypes,
-              onChange: (event) =>
-                this.updateStatePlayer("gameroundTypes", event.target.value),
-            },
-            {
               label: i18n.gaming.gameroundTypes.whatever,
               name: "whatever",
               state: "whatever" === this.props.state.gameroundTypes,
               onChange: (event) =>
                 this.updateStatePlayer("gameroundTypes", event.target.value),
             },
+            {
+              label: i18n.gaming.gameroundTypes.long,
+              name: "long",
+              state: "long" === this.props.state.gameroundTypes,
+              onChange: (event) =>
+                this.updateStatePlayer("gameroundTypes", event.target.value),
+            },
           ],
           groupName: "gameroundTypes",
           title: i18n.gaming.gameroundTypes.title,
+          className: "c-apollon-horizontal",
         }),
         e(Grid, {
           tiers: [
@@ -1077,15 +1118,16 @@ class FooterSection extends React.Component {
       e("li", {}, this.props.state + " / 4"),
       e(
         "li",
-        {
-          className: this.props.state === 4 ? "disabled" : "",
-        },
+        {},
         this.props.state === 4
-          ? e("input", {
-              className: "c-btn",
-              type: "button",
-              value: i18n.phases.submit,
-            })
+          ? e(
+              "button",
+              {
+                className: "c-btn",
+                disabled: this.props.errors.length > 0,
+              },
+              i18n.phases.submit
+            )
           : e(
               "button",
               { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
@@ -1101,41 +1143,14 @@ class ValidationSection extends React.Component {
     super(props);
   }
 
-  validateTime = ({ saturday, sunday }) => {
-    const sat = Object.values(saturday).reduce((acc, cur) => {
-      return cur ? cur : acc;
-    }, false);
-    const sun = Object.values(sunday).reduce((acc, cur) => {
-      return cur ? cur : acc;
-    }, false);
-    return !sat && !sun;
-  };
-
-  validate = () => {
-    const errorKeys = [];
-    const { intro } = this.props.state;
-    console.log(intro);
-
-    const { name, email, languages, time } = intro;
-    if (name.length === 0) {
-      errorKeys.push("missingName");
-    }
-    if (email.length === 0) {
-      errorKeys.push("missingEmail");
-    }
-    if (languages.english === false && languages.german === false) {
-      errorKeys.push("noLanguageSelected");
-    }
-    if (this.validateTime(time)) {
-      errorKeys.push("noTimeSelected");
-    }
-    console.log(errorKeys);
-    return errorKeys;
-  };
-
   render() {
-    const errors = this.validate();
-    return "";
+    return this.props.errors.map((errorKey) => {
+      return e(
+        "p",
+        { className: "c-apollon-error-message", key: errorKey },
+        i18n.errors[errorKey]
+      );
+    });
   }
 }
 
@@ -1253,6 +1268,34 @@ class Form extends React.Component {
     };
   }
 
+  validateTime = ({ saturday, sunday }) => {
+    const sat = Object.values(saturday).reduce((acc, cur) => {
+      return cur ? cur : acc;
+    }, false);
+    const sun = Object.values(sunday).reduce((acc, cur) => {
+      return cur ? cur : acc;
+    }, false);
+    return !sat && !sun;
+  };
+
+  validate = () => {
+    const errorKeys = [];
+    const { name, email, languages, time } = this.state.intro;
+    if (name.length === 0) {
+      errorKeys.push("missingName");
+    }
+    if (email.length === 0) {
+      errorKeys.push("missingEmail");
+    }
+    if (languages.english === false && languages.german === false) {
+      errorKeys.push("noLanguageSelected");
+    }
+    if (this.validateTime(time)) {
+      errorKeys.push("noTimeSelected");
+    }
+    return errorKeys;
+  };
+
   updateState = (name, newState) => {
     this.setState({ [name]: newState });
   };
@@ -1291,11 +1334,12 @@ class Form extends React.Component {
         }),
       this.state.step === 4 &&
         e(ValidationSection, {
-          state: this.state,
+          errors: this.validate(),
         }),
       e(FooterSection, {
         state: this.state.step,
         updateState: this.updateState,
+        errors: this.validate(),
       }),
       e("code", null, JSON.stringify(this.state, null, 2))
     );

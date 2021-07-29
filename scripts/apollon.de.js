@@ -35,8 +35,8 @@ const i18n = {
     missingGenre: "Vermisst du ein Genre?",
     preferences: {
       yes: "gerne",
-      no: "lieber nicht",
       whatever: "egal",
+      no: "lieber nicht",
     },
     list: {
       fantasy: "Fantasy",
@@ -64,9 +64,9 @@ const i18n = {
     participate: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
     gameroundTypes: {
       title: "Arten von Spielrunden",
-      short: "kurze aber viele Spielrunden",
-      long: "lange aber wenige Spielrunden",
+      short: "kurze Spielrunden",
       whatever: "egal",
+      long: "lange Spielrunden",
     },
     companions: {
       title: "Begleitpersonen",
@@ -78,7 +78,7 @@ const i18n = {
   gamemastering: {
     participate: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
     id: "ID",
-    addAGameround: "+ füge eine neue Spielrunde hinzu",
+    addAGameround: "füge eine neue Spielrunde hinzu",
     deleteGameround: "Spielrunde löschen",
     saveGameround: "Spielrunde speichern",
     editGameround: "Spielrunde bearbeiten",
@@ -114,4 +114,10 @@ const i18n = {
     },
   },
   questions: "Noch Fragen?",
+  errors: {
+    missingName: "Bitte fülle das Feld «Name» (Schritt 1) aus.",
+    missingEmail: "Bitte fülle das Feld «E-Mail» (Schritt 1) aus.",
+    noLanguageSelected: "Bitte wähle mindestens eine Sprache (Schritt 1) aus.",
+    noTimeSelected: "Bitte wähle mindestens ein Zeitfenster (Schritt 1) aus.",
+  },
 };
