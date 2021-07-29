@@ -25,14 +25,12 @@ class AddElement extends React.Component {
         onChange: (event) => this.setState({ input: event.target.value }),
         onKeyPress: (event) => event.code === "Enter" && this.addElement(),
       }),
-      e(
-        "button",
-        {
-          type: "button",
-          onClick: this.addElement,
-        },
-        this.props.button
-      )
+      e("input", {
+        type: "button",
+        onClick: this.addElement,
+        className: "c-btn",
+        value: this.props.button,
+      })
     );
   }
 }
@@ -175,7 +173,7 @@ class Radio extends React.Component {
       {},
       e(
         "label",
-        {},
+        { className: this.props.state ? "active" : "" },
         e("input", {
           type: "radio",
           name: this.props.groupName,
@@ -206,7 +204,7 @@ class RadioGroup extends React.Component {
       {},
       this.props.title && e("h3", {}, this.props.title),
       this.props.description && e("p", {}, this.props.description),
-      ...this.renderRadios()
+      e("div", { className: "c-apollon-radio-group" }, ...this.renderRadios())
     );
   }
 }
@@ -217,7 +215,12 @@ class GridLabel extends React.Component {
   }
 
   renderDeleteButton = () => {
-    return e("button", { type: "button", onClick: this.props.onClick }, "x");
+    return e("input", {
+      type: "button",
+      className: "c-btn",
+      onClick: this.props.onClick,
+      value: i18n.general.delete,
+    });
   };
 
   render() {
@@ -258,6 +261,8 @@ class Grid extends React.Component {
             onClick: () => this.props.deleteEntryFromGrid(entry.name),
           },
           i18n[this.props.type].list[entry.name]
+            ? i18n[this.props.type].list[entry.name]
+            : entry.label
         ),
         e(RadioGroup, {
           options: this.buildOptions(entry),
@@ -271,7 +276,7 @@ class Grid extends React.Component {
     return e(AddElement, {
       name: "newEntry",
       label: this.props.missingEntry,
-      button: "+",
+      button: "+ " + i18n[this.props.type].addLabel,
       handleClick: this.props.addEntryToGrid,
     });
   };
@@ -379,11 +384,12 @@ class EditGame extends React.Component {
 
   render() {
     if (Object.entries(this.props.state).length === 0) {
-      return e(
-        "button",
-        { type: "button", onClick: this.props.newEmptyGame },
-        i18n.gamemastering.addAGameround
-      );
+      return e("input", {
+        type: "button",
+        className: "c-btn",
+        onClick: this.props.newEmptyGame,
+        value: i18n.gamemastering.addAGameround,
+      });
     }
 
     return e(
@@ -422,7 +428,7 @@ class EditGame extends React.Component {
       e(AddElement, {
         name: "newGenre",
         label: i18n.genres.missingGenre,
-        button: "+",
+        button: "+ " + i18n.genres.addLabel,
         handleClick: (name) =>
           this.updateStateNewGame("genres", [
             ...this.props.state.genres,
@@ -475,16 +481,18 @@ class EditGame extends React.Component {
             patrons: Number(value),
           }),
       }),
-      e(
-        "button",
-        { type: "button", onClick: this.props.deleteGame },
-        i18n.gamemastering.deleteGameround
-      ),
-      e(
-        "button",
-        { type: "button", onClick: this.props.addGame },
-        i18n.gamemastering.saveGameround
-      )
+      e("input", {
+        type: "button",
+        className: "c-btn",
+        onClick: this.props.deleteGame,
+        value: i18n.gamemastering.deleteGameround,
+      }),
+      e("input", {
+        type: "button",
+        className: "c-btn",
+        onClick: this.props.addGame,
+        value: i18n.gamemastering.saveGameround,
+      })
     );
   }
 }
@@ -764,7 +772,7 @@ class PlayerSection extends React.Component {
       }),
       this.props.state.companions.count > 0 &&
         e(TextInput, {
-          label: i18n.companions.names,
+          label: i18n.gaming.companions.names,
           handleChange: (_, value) =>
             this.updateStatePlayer("companions", {
               ...this.props.state.companions,
@@ -1011,6 +1019,57 @@ class StepSection extends React.Component {
   }
 }
 
+class FooterSection extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  updateStateStep = (e, step) => {
+    e.preventDefault();
+    if (step >= 1 && step <= 4) {
+      this.props.updateState("step", step);
+    }
+  };
+
+  render() {
+    return e(
+      "ul",
+      { className: "c-apollon-footer" },
+      e(
+        "li",
+        {
+          className: this.props.state === 1 ? "disabled" : "",
+        },
+        this.props.state > 1
+          ? e(
+              "button",
+              { onClick: (e) => this.updateStateStep(e, this.props.state - 1) },
+              "« " + i18n.phases.back
+            )
+          : ""
+      ),
+      e("li", {}, this.props.state + " / 4"),
+      e(
+        "li",
+        {
+          className: this.props.state === 4 ? "disabled" : "",
+        },
+        this.props.state === 4
+          ? e("input", {
+              className: "c-btn",
+              type: "button",
+              value: i18n.phases.submit,
+            })
+          : e(
+              "button",
+              { onClick: (e) => this.updateStateStep(e, this.props.state + 1) },
+              i18n.phases.next + " »"
+            )
+      )
+    );
+  }
+}
+
 // Global
 
 class Form extends React.Component {
@@ -1125,7 +1184,7 @@ class Form extends React.Component {
           state: this.state.outro,
           updateState: this.updateState,
         }),
-      e(StepSection, {
+      e(FooterSection, {
         state: this.state.step,
         updateState: this.updateState,
       }),
