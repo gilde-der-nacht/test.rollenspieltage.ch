@@ -10,8 +10,13 @@ class AddElement extends React.Component {
     this.state = { input: "" };
   }
 
-  addElement = () => {
+  addElement = (e) => {
+    e.preventDefault();
+    if (this.state.input.length === 0) {
+      return;
+    }
     this.props.handleClick(this.state.input);
+    this.setState({ input: "" });
   };
 
   render() {
@@ -23,7 +28,7 @@ class AddElement extends React.Component {
         type: "text",
         value: this.state.input,
         onChange: (event) => this.setState({ input: event.target.value }),
-        onKeyPress: (event) => event.code === "Enter" && this.addElement(),
+        onKeyPress: (event) => event.code === "Enter" && this.addElement(event),
       }),
       e(
         "button",
@@ -159,7 +164,12 @@ class CheckmarkGroup extends React.Component {
     return e(
       "div",
       { className: this.props.className },
-      this.props.title && e("h3", {}, this.props.title),
+      this.props.title &&
+        e(
+          this.props.headingLevel ? "h" + this.props.headingLevel : "h3",
+          {},
+          this.props.title
+        ),
       this.props.description && e("p", {}, this.props.description),
       e("ul", null, ...this.renderCheckmarks())
     );
@@ -185,7 +195,9 @@ class Radio extends React.Component {
           checked: this.props.state,
           onChange: this.props.onChange,
         }),
-        this.props.label
+        this.props.icon
+          ? e("i", { className: this.props.icon })
+          : this.props.label
       )
     );
   }
@@ -257,9 +269,14 @@ class Grid extends React.Component {
   }
 
   buildOptions = (entry) => {
+    const iconMap = {
+      yes: "fas fa-plus-square",
+      whatever: "fas fa-question-square",
+      no: "fas fa-minus-square",
+    };
     return this.props.tiers.map((tier) => {
       return {
-        label: tier.label,
+        icon: iconMap[tier.name],
         name: tier.name,
         state: tier.name === entry.status,
         onChange: this.props.updateStateGrid,
@@ -312,6 +329,13 @@ class Grid extends React.Component {
             "c-apollon-grid" +
             (this.props.type === "genres" ? " four" : " three"),
         },
+        e(
+          "div",
+          { className: "c-apollon-grid-header" },
+          this.props.tiers.map((tier) =>
+            e("h4", { key: tier.name }, tier.label)
+          )
+        ),
         ...this.renderList()
       ),
       this.renderAddEntry()
@@ -338,7 +362,10 @@ class GamemasterGames extends React.Component {
             "button",
             {
               className: "c-btn",
-              onClick: () => this.props.editGame(entry.id),
+              onClick: (e) => {
+                e.preventDefault();
+                this.props.editGame(entry.id);
+              },
             },
             i18n.gamemastering.editGameround
           ),
@@ -411,6 +438,31 @@ class EditGame extends React.Component {
       })
     );
   };
+  validateGenres = (genres) => {
+    return !genres.reduce(
+      (acc, cur) => (cur.checked ? cur.checked : acc),
+      false
+    );
+  };
+
+  validate = () => {
+    const errorKeys = [];
+    const { title, description, genres, playerCount } = this.props.state;
+    if (title.length === 0) {
+      errorKeys.push("editMissingTitle");
+    }
+    if (description.length === 0) {
+      errorKeys.push("editMissingDescription");
+    }
+    if (this.validateGenres(genres)) {
+      errorKeys.push("editMissingGenres");
+    }
+    const { min, max } = playerCount;
+    if (min > max) {
+      errorKeys.push("editMaxSmallerThanMin");
+    }
+    return errorKeys;
+  };
 
   render() {
     if (Object.entries(this.props.state).length === 0) {
@@ -428,7 +480,6 @@ class EditGame extends React.Component {
     return e(
       React.Fragment,
       {},
-      e("hr"),
       e(TextInput, {
         name: "title",
         placeholder: i18n.gamemastering.gameTitle,
@@ -455,6 +506,7 @@ class EditGame extends React.Component {
           };
         }),
         title: i18n.genres.title,
+        headingLevel: 4,
         description: i18n.info.chooseAtLeastOneOption,
         className: "c-apollon-options",
       }),
@@ -478,12 +530,12 @@ class EditGame extends React.Component {
         handleChange: (_, value) =>
           this.updateStateNewGame("duration", Number(value)),
       }),
-      e("h3", {}, "Anzahl Spieler:innen"),
+      e("h4", {}, i18n.gamemastering.playerCount),
       e(NumberInput, {
         label: i18n.gamemastering.minimum,
         state: this.props.state.playerCount.min,
         required: true,
-        min: 0,
+        min: 1,
         max: 100,
         handleChange: (_, value) =>
           this.updateStateNewGame("playerCount", {
@@ -495,7 +547,7 @@ class EditGame extends React.Component {
         label: i18n.gamemastering.maximum,
         state: this.props.state.playerCount.max,
         required: true,
-        min: 0,
+        min: 1,
         max: 100,
         handleChange: (_, value) =>
           this.updateStateNewGame("playerCount", {
@@ -515,6 +567,9 @@ class EditGame extends React.Component {
             patrons: Number(value),
           }),
       }),
+      e(ValidationSection, {
+        errors: this.validate(),
+      }),
       e(
         "div",
         { className: "c-apollon-horizontal" },
@@ -524,15 +579,20 @@ class EditGame extends React.Component {
             className: "c-btn",
             onClick: this.props.deleteGame,
           },
+          e("i", { className: "fas fa-trash" }),
+          " ",
           i18n.gamemastering.deleteGameround
         ),
         e(
           "button",
           {
             className: "c-btn",
+            disabled: this.validate().length > 0,
             styles: "margin-left: 10px",
             onClick: this.props.addGame,
           },
+          e("i", { className: "fas fa-save" }),
+          " ",
           i18n.gamemastering.saveGameround
         )
       )
@@ -864,7 +924,8 @@ class GamemasterSection extends React.Component {
     });
   };
 
-  addGame = () => {
+  addGame = (e) => {
+    e.preventDefault();
     this.updateStateGamemaster("games", [
       ...this.props.state.games,
       this.props.state.gameInEdit,
