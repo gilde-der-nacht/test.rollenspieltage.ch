@@ -23,8 +23,8 @@ const i18n = {
     mail: "E-Mail",
   },
   weekdays: {
-    saturday: "Samstag",
-    sunday: "Sonntag",
+    saturday: "Samstag, 28.8.21",
+    sunday: "Sonntag, 29.8.21",
   },
   time: {
     title: "Zeitfenster",
@@ -77,13 +77,12 @@ const i18n = {
   },
   gamemastering: {
     participate: "Ja, ich möchte gerne als Spielleiter:in teilnehmen.",
-    id: "ID",
     addAGameround: "füge eine neue Spielrunde hinzu",
     deleteGameround: "Spielrunde löschen",
     saveGameround: "Spielrunde speichern",
     editGameround: "Spielrunde bearbeiten",
     gameTitle: "Titel",
-    duration: "Dauer (in Stunden)",
+    duration: "Dauer",
     hours: "Stunde",
     minimum: "Minimum",
     maximum: "Maximum",
