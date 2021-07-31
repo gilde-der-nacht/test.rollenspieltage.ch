@@ -3,6 +3,8 @@
 const i18n = {
   general: {
     delete: "Löschen",
+    helpNeeded:
+      "Zögere nicht, uns bei Unklarheiten und Fragen direkt zu kontaktieren.",
   },
   phases: {
     intro: "Einstieg",
@@ -19,6 +21,7 @@ const i18n = {
     de: "Deutsch",
   },
   fields: {
+    title: "Kontaktdaten",
     name: "Name",
     mail: "E-Mail",
   },
@@ -27,6 +30,8 @@ const i18n = {
     sunday: "Sonntag, 29.8.21",
   },
   time: {
+    description:
+      "Bitte wähle die Stunden aus, an denen du am Anlass teilnehmen möchtest. Wir geben unser Bestes, dir ein möglichst spannendes, auf dich zugeschnittenes Programm zusammenzustellen.",
     title: "Zeitfenster",
     hour: "Uhr",
   },
@@ -44,19 +49,24 @@ const i18n = {
       horror: "Horror",
       crime: "Krimi",
       modern: "Modern",
+      cyberpunk: "Cyberpunk",
+      steampunk: "Steampunk",
+      western: "Western",
+      history: "Historisch",
     },
     addLabel: "hinzufügen",
   },
   workshops: {
-    title: "Workshops/Diskussionsrunden",
+    title: "Workshops / Diskussionsrunden",
     missingWorkshop:
-      "Hast du Interesse an einem hier nicht aufgeführten Workshop/Diskussionsrunde?",
+      "Hast du Interesse an einem hier nicht aufgeführten Workshop / Diskussionsrunde?",
     preferences: {
       yes: "gerne",
       no: "nein",
     },
     list: {
-      spielleiterworkshop: "Spielleiter Workshop",
+      workshop_1: "Spielleiter Workshop #1",
+      demo_discussion: "Demo Diskussion",
     },
     addLabel: "hinzufügen",
   },
@@ -64,14 +74,16 @@ const i18n = {
     participate: "Ja, ich möchte gerne als Spieler:in teilnehmen.",
     gameroundTypes: {
       title: "Arten von Spielrunden",
+      description:
+        "Uns interessiert, ob du an den Luzerner Rollenspieltagen lieber viele Rollenspiele in kurzen Runden testen möchtest oder dich auf wenige, dafür längere Runden fokussieren möchtest.",
       short: "kurze Spielrunden",
       whatever: "egal",
       long: "lange Spielrunden",
     },
     companions: {
-      title: "Begleitpersonen",
+      title: "Anmeldung für Gruppen",
       description:
-        "Du kannst bis zu zwei Freunde hier hinzufügen, damit ihr gemeinsam spielen könnt. Ist eure Gruppe grösser, bitten wir euch in mehreren Gruppen aufzuteilen, da es für uns schwierig ist, Platz für so grosse Gruppen zu finden.",
+        "Du kannst bis zu zwei Freunde hier hinzufügen, damit ihr gemeinsam spielen könnt. Ist eure Gruppe grösser, bitten wir euch in mehrere Gruppen aufzuteilen, da es für uns schwierig ist, Platz für grössere Gruppen zu finden.",
       names: "Optional darfst du uns die Namen deiner Freunde hier aufführen.",
     },
   },
@@ -105,14 +117,21 @@ const i18n = {
   helping: {
     title: "Helferaufruf",
     description:
-      "ganz alleine würden wir die Rollenspieltage nicht durchführen können",
+      "Ganz alleine könnten wir die Rollenspieltage nicht durchführen. Du kannst uns in diesen Bereichen unterstützen.",
     tasks: {
-      logistics: "Aufbau/Abbau",
+      logistics: "Aufbau / Abbau",
       finance: "Kasse (Buffet oder Flohmarkt)",
       kitchen: "Küche",
     },
   },
-  questions: "Noch Fragen?",
+  questions: {
+    title: "Noch Fragen?",
+    contact: "zum Kontaktformular",
+    contactUrl: "/kontakt",
+    chat: "zum Live-Chat",
+    chatUrl: "/livechat",
+    description: "Oder hinterlasse hier deine Fragen.",
+  },
   errors: {
     missingName: "Bitte fülle das Feld «Name» (Schritt 1) aus.",
     missingEmail: "Bitte fülle das Feld «E-Mail» (Schritt 1) aus.",

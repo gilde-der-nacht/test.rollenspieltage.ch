@@ -2,6 +2,20 @@
 
 const e = React.createElement;
 
+const GENRE_LIST = [
+  "fantasy",
+  "scifi",
+  "horror",
+  "crime",
+  "modern",
+  "cyberpunk",
+  "steampunk",
+  "western",
+  "history",
+];
+
+const WORKSHOP_LIST = ["workshop_1", "demo_discussion"];
+
 // Components
 
 class GameListButtons extends React.Component {
@@ -41,6 +55,7 @@ class AddElement extends React.Component {
       e("input", {
         type: "text",
         value: this.state.input,
+        disabled: this.props.disabled,
         onChange: (event) => this.setState({ input: event.target.value }),
         onKeyPress: (event) => event.code === "Enter" && this.addElement(event),
       }),
@@ -48,6 +63,7 @@ class AddElement extends React.Component {
         "button",
         {
           type: "button",
+          disabled: this.props.disabled,
           onClick: this.addElement,
           className: "c-btn",
         },
@@ -78,6 +94,7 @@ class NumberInput extends React.Component {
         name: this.props.name,
         type: "number",
         required: this.props.required,
+        disabled: this.props.disabled,
         value: this.props.state,
         min: this.props.min,
         max: this.props.max,
@@ -106,6 +123,7 @@ class TextArea extends React.Component {
         name: this.props.name,
         placeholder: this.props.placeholder,
         required: this.props.required,
+        disabled: this.props.disabled,
         value: this.props.state,
         onChange: this.props.onChange,
       })
@@ -131,6 +149,7 @@ class TextInput extends React.Component {
         name: this.props.name,
         type: "text",
         placeholder: this.props.placeholder,
+        disabled: this.props.disabled,
         required: this.props.required,
         value: this.props.state,
         onChange: (event) =>
@@ -155,6 +174,7 @@ class Checkmark extends React.Component {
         e("input", {
           type: "checkbox",
           name: this.props.name,
+          disabled: this.props.disabled,
           checked: this.props.state,
           onChange: this.props.onChange,
         }),
@@ -209,6 +229,7 @@ class Radio extends React.Component {
           value: this.props.name,
           checked: this.props.state,
           onChange: this.props.onChange,
+          disabled: this.props.disabled,
         }),
         this.props.icon
           ? e("i", { className: this.props.icon })
@@ -287,15 +308,16 @@ class Grid extends React.Component {
 
   buildOptions = (entry) => {
     const iconMap = {
-      yes: "fas fa-plus-square",
-      whatever: "fas fa-question-square",
       no: "fas fa-minus-square",
+      whatever: "fas fa-question-square",
+      yes: "fas fa-plus-square",
     };
     return this.props.tiers.map((tier) => {
       return {
         icon: iconMap[tier.name],
         name: tier.name,
         state: tier.name === entry.status,
+        disabled: this.props.disabled,
         onChange: this.props.updateStateGrid,
       };
     });
@@ -329,6 +351,7 @@ class Grid extends React.Component {
       name: "newEntry",
       label: this.props.missingEntry,
       icon: "fas fa-plus-square",
+      disabled: this.props.disabled,
       button: i18n[this.props.type].addLabel,
       handleClick: this.props.addEntryToGrid,
     });
@@ -339,6 +362,7 @@ class Grid extends React.Component {
       "div",
       {},
       e("h3", {}, this.props.title),
+      this.props.description && e("p", {}, this.props.description),
       e(
         "div",
         {
@@ -407,6 +431,7 @@ class GamemasterGames extends React.Component {
                   EditGame,
                   {
                     state: entry,
+                    disabled: this.props.disabled,
                     errors: this.validate(entry),
                     updateGame: this.props.updateGame(entry.id),
                     position: i + 1,
@@ -419,6 +444,7 @@ class GamemasterGames extends React.Component {
                       {
                         type: "button",
                         className: "c-btn delete",
+                        disabled: this.props.disabled,
                         onClick: this.props.deleteGame(entry.id),
                       },
                       e("i", { className: "fas fa-trash" }),
@@ -428,7 +454,9 @@ class GamemasterGames extends React.Component {
                       "button",
                       {
                         type: "button",
-                        disabled: this.validate(entry).length > 0,
+                        disabled:
+                          this.validate(entry).length > 0 ||
+                          this.props.disabled,
                         className: "c-btn",
                         onClick: this.props.changeEditMode(entry.id, false),
                       },
@@ -441,6 +469,7 @@ class GamemasterGames extends React.Component {
                   GameListEntry,
                   {
                     state: entry,
+                    disabled: this.props.disabled,
                     position: i + 1,
                   },
                   e(
@@ -450,6 +479,7 @@ class GamemasterGames extends React.Component {
                       "button",
                       {
                         type: "button",
+                        disabled: this.props.disabled,
                         className: "c-btn delete",
                         onClick: this.props.deleteGame(entry.id),
                       },
@@ -460,6 +490,7 @@ class GamemasterGames extends React.Component {
                       "button",
                       {
                         type: "button",
+                        disabled: this.props.disabled,
                         className: "c-btn",
                         onClick: this.props.changeEditMode(entry.id, true),
                       },
@@ -476,6 +507,7 @@ class GamemasterGames extends React.Component {
         {
           type: "button",
           className: "c-apollon-round-entry new-entry",
+          disabled: this.props.disabled,
           onClick: this.props.newEmptyGame,
         },
         e("i", { className: "fas fa-plus-square" }),
@@ -574,6 +606,7 @@ class EditGame extends React.Component {
         placeholder: i18n.gamemastering.gameTitle,
         label: i18n.gamemastering.gameTitle,
         required: true,
+        disabled: this.props.disabled,
         state: this.props.state.title,
         handleChange: this.props.updateGame,
       }),
@@ -582,6 +615,7 @@ class EditGame extends React.Component {
         placeholder: "Beschreibung",
         label: "Beschreibung",
         required: true,
+        disabled: this.props.disabled,
         state: this.props.state.description,
         handleChange: this.props.updateGame,
       }),
@@ -591,6 +625,7 @@ class EditGame extends React.Component {
             label: genre.label,
             name: genre.label,
             state: genre.checked,
+            disabled: this.props.disabled,
             onChange: this.updateGenre,
           };
         }),
@@ -603,6 +638,7 @@ class EditGame extends React.Component {
         name: "newGenre",
         label: i18n.genres.missingGenre,
         button: i18n.genres.addLabel,
+        disabled: this.props.disabled,
         icon: "fas fa-plus-square",
         handleClick: (name) =>
           this.props.updateGame("genres", [
@@ -613,6 +649,7 @@ class EditGame extends React.Component {
       e(NumberInput, {
         label: i18n.gamemastering.duration,
         state: this.props.state.duration,
+        disabled: this.props.disabled,
         required: true,
         min: 1,
         max: 12,
@@ -623,6 +660,7 @@ class EditGame extends React.Component {
       e(NumberInput, {
         label: i18n.gamemastering.minimum,
         state: this.props.state.playerCount.min,
+        disabled: this.props.disabled,
         required: true,
         min: 1,
         max: 100,
@@ -635,6 +673,7 @@ class EditGame extends React.Component {
       e(NumberInput, {
         label: i18n.gamemastering.maximum,
         state: this.props.state.playerCount.max,
+        disabled: this.props.disabled,
         required: true,
         min: 1,
         max: 100,
@@ -647,6 +686,7 @@ class EditGame extends React.Component {
       e(NumberInput, {
         label: i18n.gamemastering.patrons.title,
         state: this.props.state.playerCount.patrons,
+        disabled: this.props.disabled,
         required: true,
         min: 0,
         max: 100,
@@ -779,6 +819,30 @@ class IntroSection extends React.Component {
       "fieldset",
       {},
       e("h2", null, i18n.phases.intro),
+      e("p", null, i18n.general.helpNeeded),
+      e(
+        "ul",
+        {},
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.contactUrl, target: "_blank" },
+            i18n.questions.contact
+          )
+        ),
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.chatUrl, target: "_blank" },
+            i18n.questions.chat
+          )
+        )
+      ),
+      e("h3", null, i18n.fields.title),
       e(TextInput, {
         name: "name",
         placeholder: i18n.fields.name,
@@ -800,6 +864,7 @@ class IntroSection extends React.Component {
         state: this.props.state.languages,
       }),
       e("h3", {}, i18n.time.title),
+      e("p", null, i18n.time.description),
       e(IntroTimeSection, {
         updateStateIntro: this.updateStateIntro,
         state: this.props.state.time,
@@ -874,6 +939,7 @@ class PlayerSection extends React.Component {
             {
               label: i18n.gaming.gameroundTypes.short,
               name: "short",
+              disabled: !this.props.state.role,
               state: "short" === this.props.state.gameroundTypes,
               onChange: (event) =>
                 this.updateStatePlayer("gameroundTypes", event.target.value),
@@ -881,6 +947,7 @@ class PlayerSection extends React.Component {
             {
               label: i18n.gaming.gameroundTypes.whatever,
               name: "whatever",
+              disabled: !this.props.state.role,
               state: "whatever" === this.props.state.gameroundTypes,
               onChange: (event) =>
                 this.updateStatePlayer("gameroundTypes", event.target.value),
@@ -888,6 +955,7 @@ class PlayerSection extends React.Component {
             {
               label: i18n.gaming.gameroundTypes.long,
               name: "long",
+              disabled: !this.props.state.role,
               state: "long" === this.props.state.gameroundTypes,
               onChange: (event) =>
                 this.updateStatePlayer("gameroundTypes", event.target.value),
@@ -895,26 +963,29 @@ class PlayerSection extends React.Component {
           ],
           groupName: "gameroundTypes",
           title: i18n.gaming.gameroundTypes.title,
+          description: i18n.gaming.gameroundTypes.description,
           className: "c-apollon-horizontal",
         }),
         e(Grid, {
           tiers: [
             {
-              label: i18n.genres.preferences.yes,
-              name: "yes",
+              label: i18n.genres.preferences.no,
+              name: "no",
             },
             {
               label: i18n.genres.preferences.whatever,
               name: "whatever",
             },
             {
-              label: i18n.genres.preferences.no,
-              name: "no",
+              label: i18n.genres.preferences.yes,
+              name: "yes",
             },
           ],
           state: this.props.state.genres,
           type: "genres",
           title: i18n.genres.title,
+          disabled: !this.props.state.role,
+          description: i18n.genres.description,
           missingEntry: i18n.genres.missingGenre,
           updateStateGrid: (event) => this.updateStateGrid("genres", event),
           addEntryToGrid: (name) => this.addEntryToGrid("genres", name),
@@ -926,17 +997,19 @@ class PlayerSection extends React.Component {
           : e(Grid, {
               tiers: [
                 {
-                  label: i18n.workshops.preferences.yes,
-                  name: "yes",
-                },
-                {
                   label: i18n.workshops.preferences.no,
                   name: "no",
+                },
+                {
+                  label: i18n.workshops.preferences.yes,
+                  name: "yes",
                 },
               ],
               state: this.props.state.workshops,
               type: "workshops",
+              disabled: !this.props.state.role,
               title: i18n.workshops.title,
+              description: i18n.workshops.description,
               missingEntry: i18n.workshops.missingWorkshop,
               updateStateGrid: (event) =>
                 this.updateStateGrid("workshops", event),
@@ -952,6 +1025,7 @@ class PlayerSection extends React.Component {
             return {
               label: option,
               name: option,
+              disabled: !this.props.state.role,
               state: option === this.props.state.companions.count,
               onChange: (event) =>
                 this.updateStatePlayer("companions", {
@@ -966,6 +1040,7 @@ class PlayerSection extends React.Component {
         this.props.state.companions.count > 0 &&
           e(TextInput, {
             label: i18n.gaming.companions.names,
+            disabled: !this.props.state.role,
             handleChange: (_, value) =>
               this.updateStatePlayer("companions", {
                 ...this.props.state.companions,
@@ -997,28 +1072,12 @@ class GamemasterSection extends React.Component {
         id: Math.round(Math.random() * 10000),
         title: "",
         description: "",
-        genres: [
-          {
-            label: i18n.genres.list.fantasy,
+        genres: GENRE_LIST.map((genre) => {
+          return {
+            label: i18n.genres.list[genre],
             checked: false,
-          },
-          {
-            label: i18n.genres.list.scifi,
-            checked: false,
-          },
-          {
-            label: i18n.genres.list.horror,
-            checked: false,
-          },
-          {
-            label: i18n.genres.list.crime,
-            checked: false,
-          },
-          {
-            label: i18n.genres.list.modern,
-            checked: false,
-          },
-        ],
+          };
+        }),
         duration: 2,
         playerCount: {
           min: 1,
@@ -1093,6 +1152,7 @@ class GamemasterSection extends React.Component {
             {
               label: i18n.gamemastering.buddy.option,
               name: "buddy",
+              disabled: !this.props.state.role,
               state: this.props.state.buddy,
               onChange: (event) =>
                 this.updateStateGamemaster(
@@ -1107,6 +1167,7 @@ class GamemasterSection extends React.Component {
         }),
         e(GamemasterGames, {
           state: this.props.state.games,
+          disabled: !this.props.state.role,
           newEmptyGame: this.newEmptyGame,
           changeEditMode: this.changeEditMode,
           updateGame: this.updateGame,
@@ -1157,8 +1218,31 @@ class OutroSection extends React.Component {
           };
         }),
       }),
+      e("h3", {}, i18n.questions.title),
+      e(
+        "ul",
+        {},
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.contactUrl, target: "_blank" },
+            i18n.questions.contact
+          )
+        ),
+        e(
+          "li",
+          {},
+          e(
+            "a",
+            { href: i18n.questions.chatUrl, target: "_blank" },
+            i18n.questions.chat
+          )
+        )
+      ),
       e(TextArea, {
-        label: i18n.questions,
+        label: i18n.questions.description,
         state: this.props.state.questions,
         onChange: (e) => {
           this.updateStateOutro("questions", e.target.value);
@@ -1232,7 +1316,7 @@ class FooterSection extends React.Component {
   updateStateStep = (e, step) => {
     e.preventDefault();
     if (step >= 1 && step <= 4) {
-      this.props.updateState("step", step);
+      this.props.updateStep(step)();
     }
   };
 
@@ -1289,12 +1373,23 @@ class ValidationSection extends React.Component {
     super(props);
   }
 
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.anchor();
+  };
+
   render() {
     return this.props.errors.map((errorKey) => {
       return e(
         "p",
         { className: "c-apollon-error-message", key: errorKey },
-        i18n.errors[errorKey]
+        this.props.anchor
+          ? e(
+              "a",
+              { href: "#", onClick: this.handleClick },
+              i18n.errors[errorKey]
+            )
+          : i18n.errors[errorKey]
       );
     });
   }
@@ -1348,40 +1443,20 @@ class Form extends React.Component {
       player: {
         role: true,
         gameroundTypes: "whatever",
-        genres: [
-          {
-            name: "fantasy",
+        genres: GENRE_LIST.map((genre) => {
+          return {
+            name: genre,
             status: "whatever",
             fix: true,
-          },
-          {
-            name: "scifi",
-            status: "whatever",
-            fix: true,
-          },
-          {
-            name: "horror",
-            status: "whatever",
-            fix: true,
-          },
-          {
-            name: "crime",
-            status: "whatever",
-            fix: true,
-          },
-          {
-            name: "modern",
-            status: "whatever",
-            fix: true,
-          },
-        ],
-        workshops: [
-          {
-            name: "spielleiterworkshop",
+          };
+        }),
+        workshops: WORKSHOP_LIST.map((workshop) => {
+          return {
+            name: workshop,
             status: "no",
             fix: true,
-          },
-        ],
+          };
+        }),
         companions: {
           count: 0,
           names: "",
@@ -1453,6 +1528,11 @@ class Form extends React.Component {
     console.log(this.state);
   };
 
+  goToStep = (step) => () => {
+    document.querySelector("h1").scrollIntoView();
+    this.updateState("step", step);
+  };
+
   render() {
     return e(
       "form",
@@ -1488,10 +1568,11 @@ class Form extends React.Component {
       this.state.step === 4 &&
         e(ValidationSection, {
           errors: this.validate(),
+          anchor: this.goToStep(1),
         }),
       e(FooterSection, {
         state: this.state.step,
-        updateState: this.updateState,
+        updateStep: this.goToStep,
         submit: this.submit,
         errors: this.validate(),
       }),
