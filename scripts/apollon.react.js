@@ -2,6 +2,11 @@
 
 const e = React.createElement;
 
+const SERVER = "https://api.gildedernacht.ch";
+
+const RESOURCE_UID =
+  "38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf";
+
 const GENRE_LIST = [
   "fantasy",
   "scifi",
@@ -1382,7 +1387,7 @@ class FooterSection extends React.Component {
                 disabled: this.props.errors.length > 0,
                 onClick: this.props.submit,
               },
-              i18n.phases.submit
+              window.apollonEditMode ? i18n.phases.update : i18n.phases.submit
             )
           : e(
               "button",
@@ -1430,6 +1435,8 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      secret: "",
+      secretValid: false,
       intro: {
         name: "",
         email: "",
@@ -1551,24 +1558,58 @@ class Form extends React.Component {
 
   updateState = (name, newState) => {
     this.setState({ [name]: newState });
-    this.saveStateToBrowser({ ...this.state, [name]: newState });
+    if (!window.apollonEditMode) {
+      this.saveStateToBrowser({ ...this.state, [name]: newState });
+    }
   };
 
   saveStateToBrowser = (state) => {
     localStorage.setItem("rst2021", JSON.stringify(state));
   };
 
-  componentDidMount = () => {
-    const prevState = JSON.parse(localStorage.getItem("rst2021"));
-    this.setState(prevState);
+  loadPrevState = async () => {
+    const olymp = new Olymp({ server: SERVER });
+    return await olymp
+      .getRegistration(RESOURCE_UID, this.state.secret)
+      .then((data) => data.privateBody);
   };
 
-  submit = (e) => {
+  componentDidMount = async () => {
+    const params = await new URLSearchParams(window.location.search);
+    this.setState({ secret: params.get("secret") });
+
+    if (!window.apollonEditMode) {
+      const prevState = JSON.parse(localStorage.getItem("rst2021"));
+      this.setState(prevState);
+    } else {
+      try {
+        const prevState = await this.loadPrevState();
+        this.setState(prevState);
+        this.goToStep(1)();
+        this.setState({ secretValid: true });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  };
+
+  copy = (obj) => {
+    return JSON.parse(JSON.stringify(obj));
+  };
+
+  submit = async (e) => {
     e.preventDefault();
     if (this.validate().length > 0) {
       return;
     }
-    console.log(this.state);
+    const olymp = new Olymp({ server: SERVER });
+    const res = await olymp.register(
+      RESOURCE_UID,
+      this.state.secret,
+      {},
+      this.copy(this.state)
+    );
+    window.location = "/edit?secret=" + res.secret;
   };
 
   goToStep = (step) => () => {
@@ -1578,50 +1619,68 @@ class Form extends React.Component {
     }, 0);
   };
 
+  showStep = (step) => {
+    if (window.apollonEditMode && !this.state.secretValid) {
+      return step === -1;
+    }
+    return this.state.step === step;
+  };
+
   render() {
     return e(
       "form",
       {
-        action:
-          "https://api.gildedernacht.ch/form/38f8295ff8bebc869daa5d83466af523c9a1491a19302a2e7dfc0f2ec1692bdf",
+        action: SERVER + "/form/" + RESOURCE_UID,
         method: "POST",
       },
+      window.apollonEditMode &&
+        this.state.secretValid &&
+        e(
+          "div",
+          { className: "c-message c-message--success visible" },
+          i18n.success.description
+        ),
       e(StepSection, {
         state: this.state.step,
         updateState: this.updateState,
       }),
-      this.state.step === 1 &&
+      this.showStep(1) &&
         e(IntroSection, {
           state: this.state.intro,
           updateState: this.updateState,
         }),
-      this.state.step === 2 &&
+      this.showStep(2) &&
         e(PlayerSection, {
           state: this.state.player,
           updateState: this.updateState,
         }),
-      this.state.step === 3 &&
+      this.showStep(3) &&
         e(GamemasterSection, {
           state: this.state.gamemaster,
           updateState: this.updateState,
         }),
-      this.state.step === 4 &&
+      this.showStep(4) &&
         e(OutroSection, {
           state: this.state.outro,
           updateState: this.updateState,
         }),
-      this.state.step === 4 &&
+      this.showStep(4) &&
         e(ValidationSection, {
           errors: this.validate(),
           anchor: this.goToStep(1),
         }),
+      this.showStep(-1) &&
+        e(
+          "div",
+          { className: "c-message c-message--spam visible" },
+          i18n.errors.editLinkNotValid
+        ),
       e(FooterSection, {
         state: this.state.step,
         updateStep: this.goToStep,
         submit: this.submit,
         errors: this.validate(),
-      }),
-      e("code", null, JSON.stringify(this.state, null, 2))
+      })
     );
   }
 }

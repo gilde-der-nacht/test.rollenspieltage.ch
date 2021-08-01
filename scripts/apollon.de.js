@@ -16,6 +16,7 @@ const i18n = {
     back: "Zurück",
     next: "Weiter",
     submit: "Anmeldung abschliessen",
+    update: "Anmeldung updaten",
   },
   languages: {
     title: "Sprache",
@@ -157,5 +158,11 @@ const i18n = {
     editMissingGenres: "Bitte wähle mindestens ein Genre aus.",
     editMaxSmallerThanMin:
       "Die «Minimum» Spieleranzahl muss gleich oder kleiner als die «Maximum» Spieleranzahl sein.",
+    editLinkNotValid:
+      "Der aktuelle Link ist fehlerhaft. Melde dich allenfalls bei uns direkt per Kontaktformular.",
+  },
+  success: {
+    description:
+      "Danke für deine Anmeldung. Du kannst deine Anmeldung hier weiterhin anpassen. Speichere die aktuelle Seite, wenn du später davon Gebrauch machen möchtest.",
   },
 };
