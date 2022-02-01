@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="de" dir="ltr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <title>Luzerner Rollenspieltage</title>
-        <link rel="stylesheet" href="/style/style.css">
-        <link rel="preconnect" href="https://kit.fontawesome.com">
-        <script src="https://kit.fontawesome.com/ed5a2d737b.js" crossorigin="anonymous" defer></script>
-        <script src="/scripts/script.js" type="module" defer></script>
-        <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/krona-one-normal-400.woff2" type="font/woff2">
-        <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/dm-sans-normal-400.woff2" type="font/woff2">
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Luzerner Rollenspieltage</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="/scripts/script.js" type="module" defer></script>
+    <script src="/icons/duotone.min.js" defer></script>
+    <script src="/icons/fontawesome.min.js" defer></script>
+    <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/krona-one-normal-400.woff2" type="font/woff2">
+    <link rel="preload" as="font" crossorigin="anonymous" href="/fonts/dm-sans-normal-400.woff2" type="font/woff2">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
@@ -35,7 +35,7 @@
 
     </head>
 
-    <body class=rst>
+<body class=rst>
         <header class="header">
     <input type="checkbox" id="mobile-navigation" class="hidden" />
 <label for="mobile-navigation" class="toggle-mobile-navigation" data-toggle-mobile-navigation>
@@ -67,8 +67,12 @@
 
     <footer class="mobile-footer">
     <button class="button hidden" data-toggle-theme>
-    <i class="fa-duotone fa-sun-bright hidden" data-toggle-theme-to-light></i>
-    <i class="fa-duotone fa-moon-stars" data-toggle-theme-to-dark></i>
+    <span data-toggle-theme-to-light class="hidden">
+        <i class="fa-duotone fa-sun-bright"></i>
+    </span>
+    <span data-toggle-theme-to-dark>
+        <i class="fa-duotone fa-moon-stars"></i>
+    </span>
 </button>
 
 </footer>
